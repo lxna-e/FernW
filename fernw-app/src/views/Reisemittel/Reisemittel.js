@@ -1,5 +1,10 @@
 import React from "react";
+import CustomHeader from "components/CustomHeader/CustomHeader";
 
 export default function Reisemittel() {
-  return <div>Ich zeige die Reisemittel an</div>;
+  return (
+    <div>
+      <CustomHeader />
+    </div>
+  );
 }

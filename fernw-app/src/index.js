@@ -14,6 +14,8 @@ import Aktivitaeten from "views/Aktivitaeten/Aktivitaeten.js";
 import Pauschalreisen from "views/Pauschalreisen/Pauschalreisen.js";
 import Reisemittel from "views/Reisemittel/Reisemittel.js";
 import Unterkunft from "views/Unterkunft/Unterkunft.js";
+import Impressum from "views/Impressum/Impressum.js";
+import Datenschutz from "views/Datenschutz/Datenschutz.js";
 
 var hist = createBrowserHistory();
 
@@ -28,6 +30,8 @@ ReactDOM.render(
       <Route path="/pauschalreisen" component={Pauschalreisen} />
       <Route path="/reisemittel" component={Reisemittel} />
       <Route path="/unterkunft" component={Unterkunft} />
+      <Route path="/impressum" component={Impressum} />
+      <Route path="/Datenschutz" component={Datenschutz} />
     </Switch>
   </Router>,
   document.getElementById("root")

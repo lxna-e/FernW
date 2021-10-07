@@ -49,7 +49,7 @@ export default function LoginPage(props) {
             <GridItem xs={12} sm={12} md={4}>
               <Card className={classes[cardAnimaton]}>
                 <form className={classes.form}>
-                  <CardHeader color="primary" className={classes.cardHeader}>
+                  <CardHeader color="danger" className={classes.cardHeader}>
                     <h4>Login</h4>
                     <div className={classes.socialLine}>
                       <Button
@@ -84,7 +84,7 @@ export default function LoginPage(props) {
                   <p className={classes.divider}>Or Be Classical</p>
                   <CardBody>
                     <CustomInput
-                      labelText="First Name..."
+                      labelText="Name..."
                       id="first"
                       formControlProps={{
                         fullWidth: true,
@@ -114,7 +114,7 @@ export default function LoginPage(props) {
                       }}
                     />
                     <CustomInput
-                      labelText="Password"
+                      labelText="Passwort"
                       id="pass"
                       formControlProps={{
                         fullWidth: true,
@@ -133,8 +133,8 @@ export default function LoginPage(props) {
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button simple color="primary" size="lg">
-                      Get started
+                    <Button simple color="danger" size="lg">
+                      Anmelden
                     </Button>
                   </CardFooter>
                 </form>

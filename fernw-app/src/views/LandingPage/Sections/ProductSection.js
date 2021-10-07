@@ -21,13 +21,16 @@ export default function ProductSection() {
     <div className={classes.section}>
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={8}>
-          <h2 className={classes.title}>Let{"'"}s talk product</h2>
+          <h2 className={classes.title}>
+            Willkomen auf dem Weg zu ihrer persönlichen Reise
+          </h2>
           <h5 className={classes.description}>
-            This is the paragraph where you can write more details about your
-            product. Keep you user engaged by providing meaningful information.
-            Remember that by this time, the user is curious, otherwise he wouldn
-            {"'"}t scroll to get here. Add a button if you want the user to see
-            more.
+            FernW bietet ihnen die Möglichkiet ihre Reise individuell nach
+            unserem Bausteinkasten-Prinzip zusammenzustellen.Wollen sie eine
+            komplette Reise buchen oder nur einen Flug, Hotel oder Unterkunft.
+            Kein Problem. FernW bietet Ihnen ein großes Spektrum an
+            Reisemitteln. Haben Sie fragen? Kontaktieren Sie uns gerne. Wir
+            freuen uns auf Sie.
           </h5>
         </GridItem>
       </GridContainer>
@@ -35,26 +38,26 @@ export default function ProductSection() {
         <GridContainer>
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
-              title="Free Chat"
-              description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+              title="Einfach Kontaktierung"
+              description="Unsere Kundenberater stehen Ihnen jederzeit kompetent zur Seite. Egal ob sie eine individuell auf ihre Wünsche zugeschnittene Reise-Empfehlungen wollen oder Probleme im Umgang mit der Website und dem Buchungssystem haben, unsere Berater helfen Ihnen gerne weiter."
               icon={Chat}
-              iconColor="info"
+              iconColor="danger"
               vertical
             />
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
-              title="Verified Users"
-              description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+              title="Verifzierte Reisepartner"
+              description="Unsere Reisepartner, egal ob Transfermittel, Unterkunft oder Aktivitäten werden jährlich mehrmals von uns überprüft. Unser Angebot an Reisepartnern erweitert sich dauerhaft. Sollte ein Reisepartner nicht mehr unseren Standards entsprechen wird er aus dem Sortiment ausselektiert."
               icon={VerifiedUser}
-              iconColor="success"
+              iconColor="danger"
               vertical
             />
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
-              title="Fingerprint"
-              description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+              title="So persönlich wie Ihr Fingerabdruck"
+              description="Bei uns wird ihre Reise so persönlich wie Sie selbst. Sie können Ihre Reise entsprechend Ihrer Wünsche passgenau auf sich zuschneiden. Dabei steht für uns Ihre Zufriedenheit an erster Stelle."
               icon={Fingerprint}
               iconColor="danger"
               vertical
