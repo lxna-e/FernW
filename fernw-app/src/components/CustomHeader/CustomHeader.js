@@ -48,7 +48,7 @@ export default function CustomHeader(props) {
         rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{
-          height: 400,
+          height: 250,
           color: "danger",
         }}
         {...props}
