@@ -16,6 +16,10 @@ import Reisemittel from "views/Reisemittel/Reisemittel.js";
 import Unterkunft from "views/Unterkunft/Unterkunft.js";
 import Impressum from "views/Impressum/Impressum.js";
 import Datenschutz from "views/Datenschutz/Datenschutz.js";
+import Ferienwohnung from "views/Unterkunft/Ferienwohnung/Unterkunft.js";
+import Hotel from "views/Unterkunft/Hotel/Unterkunft.js";
+import Appartement from "views/Unterkunft/Appartement/Unterkunft.js";
+import Kreuzfahrtschiff from "views/Unterkunft/Kreuzfahrtschiff/Unterkunft.js";
 
 var hist = createBrowserHistory();
 
@@ -29,9 +33,13 @@ ReactDOM.render(
       <Route path="/aktivitaeten" component={Aktivitaeten} />
       <Route path="/pauschalreisen" component={Pauschalreisen} />
       <Route path="/reisemittel" component={Reisemittel} />
-      <Route path="/unterkunft" component={Unterkunft} />
+      <Route path="/unterkunft" exact component={Unterkunft} />
       <Route path="/impressum" component={Impressum} />
       <Route path="/Datenschutz" component={Datenschutz} />
+      <Route path="/unterkunft/ferienwohnung" component={Ferienwohnung} />
+      <Route path="/unterkunft/hotel" component={Hotel} />
+      <Route path="/unterkunft/appartement" component={Appartement} />
+      <Route path="/unterkunft/kreuzfahrtschiff" component={Kreuzfahrtschiff} />
     </Switch>
   </Router>,
   document.getElementById("root")

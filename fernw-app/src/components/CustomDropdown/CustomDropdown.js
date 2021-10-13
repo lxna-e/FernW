@@ -33,6 +33,7 @@ export default function CustomDropdown(props) {
   };
   const handleClose = (param) => {
     setAnchorEl(null);
+    console.log(param, props);
     if (props && props.onClick) {
       props.onClick(param);
     }
