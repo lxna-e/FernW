@@ -63,45 +63,6 @@ export default function LandingPage(props) {
           <img src={bahn} alt="Third slide" className="slick-image" />
         </div>
       </Carousel>
-      {/* <Header
-        color="transparent"
-        routes={dashboardRoutes}
-        brand={<img src={logo} alt="FernW" height="90" />}
-        leftLinks={
-          <List className={classes.list}>
-            <ListItem className={classes.listItem}>
-              <Link to="/unterkunft">Unterkunft</Link>
-            </ListItem>
-            <ListItem className={classes.listItem}>
-              <Link to="/reisemittel">Reisemittel</Link>
-            </ListItem>
-            <ListItem className={classes.listItem}>
-              <Link to="/aktivitaeten">Aktivitäten</Link>
-            </ListItem>
-            <ListItem className={classes.listItem}>
-              <Link to="/pauschalreisen">Pauschalreisen</Link>
-            </ListItem>
-          </List>
-        }
-        rightLinks={<HeaderLinks />}
-        fixed
-        changeColorOnScroll={{
-          height: 400,
-          color: "danger",
-        }}
-        {...rest}
-      />
-      <Carousel {...settings}> 
-        <div>
-          <img src={bus} alt="First slide" className="slick-image" />
-        </div>
-        <div>
-          <img src={hotel} alt="Second slide" className="slick-image" />
-        </div>
-        <div>
-          <img src={bahn} alt="Third slide" className="slick-image" />
-        </div>
-      </Carousel> */}
       {/* <Parallax filter image={require("assets/img/landing-bg.jpg").default}>
         <div className={classes.container}>
           <GridContainer>

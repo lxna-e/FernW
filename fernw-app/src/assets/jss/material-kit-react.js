@@ -114,7 +114,7 @@ const successCardHeader = {
 };
 const dangerCardHeader = {
   color: "#fff",
-  background: "linear-gradient(60deg, #ef5350, #e53935)",
+  background: "linear-gradient(60deg, #ffa640, #ffa640)",
   ...dangerBoxShadow,
 };
 const infoCardHeader = {

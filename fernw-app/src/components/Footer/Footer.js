@@ -35,7 +35,7 @@ export default function Footer(props) {
               <a
                 href="/impressum"
                 className={classes.block}
-                target="_blank"
+                // target="_blank"
               >
                 Impressum
               </a>
@@ -44,7 +44,7 @@ export default function Footer(props) {
               <a
                 href="/datenschutz"
                 className={classes.block}
-                target="_blank"
+                // target="_blank"
               >
                 Datenschutz
               </a>
