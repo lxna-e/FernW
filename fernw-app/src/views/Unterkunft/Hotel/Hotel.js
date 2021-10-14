@@ -36,6 +36,7 @@ import styles from "assets/jss/material-kit-react/views/hotelPage.js";
 import hotel from "assets/img/Hotelbild.png";
 import montenegro from "assets/img/montenegro1.PNG"
 import deutschland1 from "assets/img/deutschland1.PNG"
+import Island1 from "assets/img/Island1.PNG"
 import CustomHeader from "components/CustomHeader/CustomHeader.js";
 import {  List, ListItem } from "@material-ui/core";
 import Card from "components/Card/Card.js";
@@ -145,6 +146,29 @@ export default function LandingPage(props) {
                         </p>
                         <Button color="danger">
                           Gesamt ab 184€
+                        </Button>
+                      </ListItem>
+                      <ListItem>
+                        {/* <ListItemAvatar>
+                          <Avatar alt="Remy Sharp" src={montenegro}  />
+                        </ListItemAvatar> */}
+                        <img
+                          src={Island1}
+                          className={classes.imgRounded + " " + classes.imgFluid}
+                          
+                          width= "30%"
+                          
+                        />
+                        <p>
+                          <h4>Hotel Klettur</h4>
+                         
+                          <h5>Reykjavik</h5>
+                          <br/>
+                          
+                          3 Nächte, ab 16.11.2021, Frühstück, Hote
+                        </p>
+                        <Button color="danger">
+                          Gesamt ab 267€
                         </Button>
                       </ListItem>
                     </List>
