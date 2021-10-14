@@ -112,31 +112,32 @@ export default function LeftHeaderLinks(props) {
         />
       </ListItem>
       <ListItem className={classes.listItem}>
-      <CustomDropdown
-      buttonText="Pauschalreisen"
-      dropdownHeader="Pauschalreisen:"
-      buttonProps={{
-      className: classes.navLink,
-      color: "transparent",
-    }}
-      // noLiPadding
-      dropdownList={[
-      <Link to={"/pauschalreisen/bus"} className={classes.dropdownLink}>
-      Bus-Pauschalreisen
-      </Link>,
-      <Link to={"/pauschalreisen/winter"} className={classes.dropdownLink} >
-      Winterurlaube
-      </Link>,
-      <Link to={"/pauschalreisen/strand"} className={classes.dropdownLink}>
-      Strandurlaub
-      </Link>,
+        <CustomDropdown
+          buttonText="Pauschalreisen"
+          dropdownHeader="Pauschalreisen:"
+          buttonProps={{
+            className: classes.navLink,
+            color: "transparent",
+          }}
+          // noLiPadding
+          dropdownList={[
+            <Link to={"/pauschalreisen/bus"} className={classes.dropdownLink}>
+              Bus-Pauschalreisen
+            </Link>,
+            <Link to={"/pauschalreisen/winter"} className={classes.dropdownLink} >
+              Winterurlaube
+            </Link>,
+            <Link to={"/pauschalreisen/strand"} className={classes.dropdownLink}>
+              Strandurlaub
+            </Link>,
 
-    { divider: true },
-      <Link to={"/pauschalreisen"} className={classes.dropdownLink}>
-      alle Pauschalreisen
-      </Link>,
-    ]}
-      />
+            { divider: true },
+            <Link to={"/pauschalreisen"} className={classes.dropdownLink}>
+              alle Pauschalreisen
+            </Link>,
+          ]}
+        />
+      </ListItem>
 
     </List>
   );
