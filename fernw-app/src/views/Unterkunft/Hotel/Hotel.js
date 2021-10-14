@@ -35,6 +35,7 @@ import styles from "assets/jss/material-kit-react/views/hotelPage.js";
 
 import hotel from "assets/img/Hotelbild.png";
 import montenegro from "assets/img/montenegro1.PNG"
+import deutschland1 from "assets/img/deutschland1.PNG"
 import CustomHeader from "components/CustomHeader/CustomHeader.js";
 import {  List, ListItem } from "@material-ui/core";
 import Card from "components/Card/Card.js";
@@ -107,14 +108,44 @@ export default function LandingPage(props) {
                         <img
                           src={montenegro}
                           className={classes.imgRounded + " " + classes.imgFluid}
-                          height="20px"
+                          
+                          width= "30%"
+                          
                         />
                         <p>
-                          Hier stehen ein paar Infos über das Hotel
+                          <h4>Robinson Fleesensee</h4>
+                         
+                          <h5>Göhring-Lebbin</h5>
+                          <br/>
+                          
+                          3 Nächte, ab 22.11.2021, Vollpension, Hotel
                         </p>
-                        {/* <Button color="success">
-                          Hotel zur Reise hinzufügen
-                        </Button> */}
+                        <Button color="danger">
+                          Gesamt ab 570€
+                        </Button>
+                      </ListItem>
+                      <ListItem>
+                        {/* <ListItemAvatar>
+                          <Avatar alt="Remy Sharp" src={montenegro}  />
+                        </ListItemAvatar> */}
+                        <img
+                          src={deutschland1}
+                          className={classes.imgRounded + " " + classes.imgFluid}
+                          
+                          width= "30%"
+                          
+                        />
+                        <p>
+                          <h4>Falkensteiner Hotel, Montenegro</h4>
+                         
+                          <h5>Becici</h5>
+                          <br/>
+                          
+                          1 Nacht, ab 30.10.2021, Halbpension, Hotel
+                        </p>
+                        <Button color="danger">
+                          Gesamt ab 184€
+                        </Button>
                       </ListItem>
                     </List>
                   </CardBody>
