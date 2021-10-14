@@ -82,6 +82,11 @@ const productStyle = (theme) => ({
         letterSpacing: "normal",
     },
     ...imagesStyles,
+    imgRounded: {
+        ...imagesStyles.imgRounded,
+        height: "200px",
+        marginRight: "20px",
+    },
 });
 
 export default productStyle;
