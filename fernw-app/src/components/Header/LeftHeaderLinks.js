@@ -73,7 +73,7 @@ export default function LeftHeaderLinks(props) {
           // noLiPadding
           dropdownList={[
             <Link to={"/reisemittel/flug"} className={classes.dropdownLink}>
-              FLug
+              Flug
             </Link>,
             <Link to={"/reisemittel/bahn"} className={classes.dropdownLink} >
               Bahn
