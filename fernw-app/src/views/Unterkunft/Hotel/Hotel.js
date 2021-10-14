@@ -1,6 +1,7 @@
 import React from "react";
 // react Datetime picker
 import Datetime from "react-datetime"
+import "react-datetime/css/react-datetime.css";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -72,8 +73,10 @@ export default function LandingPage(props) {
                           Startdatum
                         </InputLabel>
                         <br />
-                        <Datetime timeFormat={false}
-                          inputProps={{ placeholder: "Auswahl Startdatum", showTimeSelect: false }}
+                        <Datetime className={classes.description}
+                          timeFormat={false} 
+                          dateFormat={"DD.MM.YYYY"}
+                          inputProps={{ placeholder: "Auswahl Startdatum" }}
                         />
                       </GridItem>
                       <GridItem className={classes.listItem}>
@@ -81,7 +84,9 @@ export default function LandingPage(props) {
                           Enddatum
                         </InputLabel>
                         <br />
-                        <Datetime timeFormat={false}
+                        <Datetime className={classes.description}
+                          timeFormat={false} 
+                          dateFormat={"DD.MM.YYYY"}
                           inputProps={{ placeholder: "Auswahl Enddatum" }}
                         />
                       </GridItem>
@@ -89,7 +94,7 @@ export default function LandingPage(props) {
                         <CustomInput
                           white
                           inputProps={{
-                            placeholder: "Suche nach Land..."
+                            placeholder: "Filter nach Land..."
                           }}
                         />
                         <Button justIcon round color="white">
@@ -165,7 +170,7 @@ export default function LandingPage(props) {
                           <h5>Reykjavik</h5>
                           <br/>
                           
-                          3 Nächte, ab 16.11.2021, Frühstück, Hote
+                          3 Nächte, ab 16.11.2021, Frühstück, Hotel
                         </p>
                         <Button color="danger">
                           Gesamt ab 267€

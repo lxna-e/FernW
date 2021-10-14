@@ -29,7 +29,7 @@ const productStyle = (theme) => ({
         textDecoration: "none",
     },
     description: {
-        color: "#999",
+        color: "black",
     },
     list: {
         ...defaultFont,
@@ -84,7 +84,7 @@ const productStyle = (theme) => ({
     ...imagesStyles,
     imgRounded: {
         ...imagesStyles.imgRounded,
-        height: "200px",
+        
         marginRight: "20px",
     },
 });
