@@ -1,56 +1,78 @@
-import React from "react";
+import React, { useState } from "react";
 // react Datetime picker
 import Datetime from "react-datetime"
 import "react-datetime/css/react-datetime.css";
 // nodejs library that concatenates classes
 import classNames from "classnames";
+import moment from "moment";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
 
-// @material-ui/icons
-
 // core components
-// import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
 // import Parallax from "components/Parallax/Parallax.js";
-// import HeaderLinks from "components/Header/HeaderLinks.js";
 
 import styles from "assets/jss/material-kit-react/views/hotelPage.js";
 
 // Sections for this page
-
-// @material-ui/core components
-
-
-// @material-ui/icons
-// import Chat from "@material-ui/icons/Chat";
-// import VerifiedUser from "@material-ui/icons/VerifiedUser";
-// import Fingerprint from "@material-ui/icons/Fingerprint";
-// // core components
-// import InfoArea from "components/InfoArea/InfoArea.js";
-
-
 import hotel from "assets/img/Hotelbild.png";
 import montenegro from "assets/img/montenegro1.PNG"
 import deutschland1 from "assets/img/deutschland1.PNG"
 import Island1 from "assets/img/Island1.PNG"
 import CustomHeader from "components/CustomHeader/CustomHeader.js";
-import {  List, ListItem } from "@material-ui/core";
+import { List, ListItem } from "@material-ui/core";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 import CustomInput from "components/CustomInput/CustomInput";
 import { Search } from "@material-ui/icons";
+import Hotelelement from "components/Hotelelement";
 
 const useStyles = makeStyles(styles);
 
-export default function LandingPage(props) {
+const alleHotels = [
+  {
+    id: 1,
+    img: montenegro,
+    name: "Robinson Fleesensee",
+    info: "Vollpension, Hotel",
+    loc: "Göhring-Lebbin",
+    preis: 570
+  },
+  {
+    id: 2,
+    img: deutschland1,
+    name: "Falkensteiner Hotel, Montenegro",
+    info: "Halbpension, Hotel",
+    loc: "Becici",
+    preis: 284
+  },
+  {
+    id: 3,
+    img: Island1,
+    name: "Hotel Klettur",
+    info: "Frühstück, Hotel",
+    loc: "Reykjavik",
+    preis: 267
+  },
+];
+
+export default function Hotel(props) {
   const classes = useStyles();
+  const [hotelListe, setHotelListe] = useState([])
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const dateFormat = "DD.MM.YYYY"
+  const yesterday = moment().subtract(1, "day");
+  const validStart = (current) => { return current.isAfter(yesterday) }
+  const validEnd = (current) => { return current.isAfter(yesterday) && (!startDate || current.isAfter(startDate)) }
   // const { ...rest } = props;
+
+  
   return (
     <div>
       <CustomHeader {...props} />
@@ -72,10 +94,12 @@ export default function LandingPage(props) {
                         <InputLabel className={classes.label}>
                           Startdatum
                         </InputLabel>
-                        <br />
                         <Datetime className={classes.description}
-                          timeFormat={false} 
-                          dateFormat={"DD.MM.YYYY"}
+                          closeOnSelect={true}
+                          timeFormat={false}
+                          onChange={(selected) => { setStartDate(selected) }}
+                          dateFormat={dateFormat}
+                          isValidDate={validStart}
                           inputProps={{ placeholder: "Auswahl Startdatum" }}
                         />
                       </GridItem>
@@ -83,10 +107,12 @@ export default function LandingPage(props) {
                         <InputLabel className={classes.label}>
                           Enddatum
                         </InputLabel>
-                        <br />
                         <Datetime className={classes.description}
-                          timeFormat={false} 
-                          dateFormat={"DD.MM.YYYY"}
+                          closeOnSelect={true}
+                          timeFormat={false}
+                          onChange={(selected) => { setEndDate(selected) }}
+                          dateFormat={dateFormat}
+                          isValidDate={validEnd}
                           inputProps={{ placeholder: "Auswahl Enddatum" }}
                         />
                       </GridItem>
@@ -97,7 +123,8 @@ export default function LandingPage(props) {
                             placeholder: "Filter nach Land..."
                           }}
                         />
-                        <Button justIcon round color="white">
+                        <Button justIcon round color="white" disabled={!(startDate && endDate)} 
+                        onClick={() => {console.log(alleHotels);if(startDate && endDate) {setHotelListe(alleHotels)}}}>
                           <Search className={classes.searchIcon} />
                         </Button>
 
@@ -107,124 +134,43 @@ export default function LandingPage(props) {
                   <CardBody>
                     <h3>Unsere Bestseller</h3>
                     <List>
-                      <ListItem>
-                        {/* <ListItemAvatar>
-                          <Avatar alt="Remy Sharp" src={montenegro}  />
-                        </ListItemAvatar> */}
-                        <img
-                          src={montenegro}
-                          className={classes.imgRounded + " " + classes.imgFluid}
-                          
-                          width= "30%"
-                          
+                      {/* <ListItem>
+                        <Hotelelement imgSrc={montenegro}
+                          hotelName={"Robinson Fleesensee"}
+                          hotelInformation={"Vollpension, Hotel"}
+                          location={"Göhring-Lebbin"}
+                          preis={570}
+                          startDatum={startDate}
+                          endDatum={endDate}
                         />
-                        <p>
-                          <h4>Robinson Fleesensee</h4>
-                         
-                          <h5>Göhring-Lebbin</h5>
-                          <br/>
-                          
-                          3 Nächte, ab 22.11.2021, Vollpension, Hotel
-                        </p>
-                        <Button color="danger">
-                          Gesamt ab 570€
-                        </Button>
                       </ListItem>
                       <ListItem>
-                        {/* <ListItemAvatar>
-                          <Avatar alt="Remy Sharp" src={montenegro}  />
-                        </ListItemAvatar> */}
-                        <img
-                          src={deutschland1}
-                          className={classes.imgRounded + " " + classes.imgFluid}
-                          
-                          width= "30%"
-                          
-                        />
-                        <p>
-                          <h4>Falkensteiner Hotel, Montenegro</h4>
-                         
-                          <h5>Becici</h5>
-                          <br/>
-                          
-                          1 Nacht, ab 30.10.2021, Halbpension, Hotel
-                        </p>
-                        <Button color="danger">
-                          Gesamt ab 184€
-                        </Button>
+                        <Hotelelement imgSrc={deutschland1}
+                          hotelName={"Falkensteiner Hotel, Montenegro"}
+                          location={"Becici"}
+                          hotelInformation={"Halbpension, Hotel"}
+                          preis={184}
+                          startDatum={startDate}
+                          endDatum={endDate}/>
                       </ListItem>
                       <ListItem>
-                        {/* <ListItemAvatar>
-                          <Avatar alt="Remy Sharp" src={montenegro}  />
-                        </ListItemAvatar> */}
-                        <img
-                          src={Island1}
-                          className={classes.imgRounded + " " + classes.imgFluid}
-                          
-                          width= "30%"
-                          
-                        />
-                        <p>
-                          <h4>Hotel Klettur</h4>
-                         
-                          <h5>Reykjavik</h5>
-                          <br/>
-                          
-                          3 Nächte, ab 16.11.2021, Frühstück, Hotel
-                        </p>
-                        <Button color="danger">
-                          Gesamt ab 267€
-                        </Button>
-                      </ListItem>
+                        <Hotelelement imgSrc={Island1} hotelName={"Hotel Klettur"} location={"Reykjavik"} hotelInformation={"Frühstück, Hotel"} preis={267} startDatum={startDate} endDatum={endDate}/>
+                      </ListItem> */}
+                      {hotelListe.map(hotel => (
+                        <ListItem key={hotel.id}>
+                           <Hotelelement hotelData={hotel}
+                            // imgSrc={hotel.img}
+                            // hotelName={hotel.name}
+                            // hotelInformation={hotel.info}
+                            // preis={hotel.preis}
+                            // location={hotel.loc}
+                            startDatum={startDate}
+                            endDatum={endDate}/>
+                        </ListItem>)
+                      )}
                     </List>
                   </CardBody>
                 </Card>
-                {/* <GridContainer justify="center">
-              <GridItem xs={12} sm={12} md={8}>
-                <h2 className={classes.title}>
-                  Willkomen auf dem Weg zu ihrer persönlichen Reise
-                </h2>
-                <h5 className={classes.description}>
-                  FernW bietet ihnen die Möglichkiet ihre Reise individuell nach
-                  unserem Bausteinkasten-Prinzip zusammenzustellen.Wollen sie eine
-                  komplette Reise buchen oder nur einen Flug, Hotel oder Unterkunft.
-                  Kein Problem. FernW bietet Ihnen ein großes Spektrum an
-                  Reisemitteln. Haben Sie fragen? Kontaktieren Sie uns gerne. Wir
-                  freuen uns auf Sie.
-                </h5>
-              </GridItem>
-            </GridContainer>
-            <div>
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={4}>
-                  <InfoArea
-                    title="Einfach Kontaktierung"
-                    description="Unsere Kundenberater stehen Ihnen jederzeit kompetent zur Seite. Egal ob sie eine individuell auf ihre Wünsche zugeschnittene Reise-Empfehlungen wollen oder Probleme im Umgang mit der Website und dem Buchungssystem haben, unsere Berater helfen Ihnen gerne weiter."
-                    icon={Chat}
-                    iconColor="danger"
-                    vertical
-                  />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={4}>
-                  <InfoArea
-                    title="Verifzierte Reisepartner"
-                    description="Unsere Reisepartner, egal ob Transfermittel, Unterkunft oder Aktivitäten werden jährlich mehrmals von uns überprüft. Unser Angebot an Reisepartnern erweitert sich dauerhaft. Sollte ein Reisepartner nicht mehr unseren Standards entsprechen wird er aus dem Sortiment ausselektiert."
-                    icon={VerifiedUser}
-                    iconColor="danger"
-                    vertical
-                  />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={4}>
-                  <InfoArea
-                    title="So persönlich wie Ihr Fingerabdruck"
-                    description="Bei uns wird ihre Reise so persönlich wie Sie selbst. Sie können Ihre Reise entsprechend Ihrer Wünsche passgenau auf sich zuschneiden. Dabei steht für uns Ihre Zufriedenheit an erster Stelle."
-                    icon={Fingerprint}
-                    iconColor="danger"
-                    vertical
-                  />
-                </GridItem>
-              </GridContainer>
-            </div> */}
               </GridItem>
             </GridContainer>
           </div>
