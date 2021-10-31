@@ -31,6 +31,9 @@ const productStyle = (theme) => ({
     description: {
         color: "black",
     },
+    alert: {
+        zIndex: "2000",
+    },
     list: {
         ...defaultFont,
         fontSize: "14px",
@@ -69,10 +72,6 @@ const productStyle = (theme) => ({
         marginTop: "-40px",
         padding: "20px 0",
         marginBottom: "15px",
-    },
-    cardFooter: {
-        // paddingTop: "0rem",
-        justifyContent: "right !important",
     },
     label: {
         color: "rgba(255, 255, 255, 0.74)",

@@ -15,6 +15,10 @@ import Tooltip from "@material-ui/core/Tooltip";
 import { Apps, CloudDownload } from "@material-ui/icons";
 import Search from "@material-ui/icons/Search";
 
+// shopping cart imports
+import { useSelector } from "react-redux";
+import { selectProducts } from "features/cart/cartSlice";
+
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
@@ -27,6 +31,7 @@ const useStyles = makeStyles(styles);
 
 export default function HeaderLinks(props) {
   const classes = useStyles();
+  const prodAnzahl = useSelector(selectProducts).length;
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
@@ -70,7 +75,7 @@ export default function HeaderLinks(props) {
           </Button>
         </Tooltip>
       </ListItem> */}
-      <ListItem className={classes.listItem}>
+      {/* <ListItem className={classes.listItem}>
         <Tooltip
           id="instagram-facebook"
           title="Follow us on facebook"
@@ -86,8 +91,8 @@ export default function HeaderLinks(props) {
             <i className={classes.socialIcons + " fab fa-facebook"} />
           </Button>
         </Tooltip>
-      </ListItem>
-      <ListItem className={classes.listItem}>
+      </ListItem> */}
+      {/* <ListItem className={classes.listItem}>
         <Tooltip
           id="instagram-tooltip"
           title="Follow us on instagram"
@@ -103,6 +108,12 @@ export default function HeaderLinks(props) {
             <i className={classes.socialIcons + " fab fa-instagram"} />
           </Button>
         </Tooltip>
+      </ListItem> */}
+      <ListItem className={classes.listItem}>
+        <Link to="/warenkorb" className={classes.navLink}>
+          <i className={classes.socialIcons + " fa fa-shopping-cart"} aria-hidden="true"></i>
+          {prodAnzahl !==0 && prodAnzahl}
+        </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
         <Link to="/login" className={classes.navLink}>

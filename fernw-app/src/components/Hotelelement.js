@@ -1,8 +1,15 @@
 import React from "react";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
+// nodejs library for generating unique ids
+import {v4 as uuid } from "uuid"
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
+
+// shopping cart imports
+import { useDispatch } from "react-redux";
+import { addProduct } from "features/cart/cartSlice";
+
 // core components
 import Button from "components/CustomButtons/Button.js"
 import GridContainer from "./Grid/GridContainer";
@@ -15,7 +22,7 @@ const useStyles = makeStyles(styles);
 
 export default function Hotelelement(props) {
     const classes = useStyles();
-    console.log(props);
+    const dispatch = useDispatch();
     const { hotelData, startDatum, endDatum } = props;
     const dateFormat = "DD.MM.YYYY"
     const anzahlNacht = moment(endDatum).diff(startDatum, "days")
@@ -41,7 +48,15 @@ export default function Hotelelement(props) {
                 </div>
             </GridItem>
             <GridItem  xs={4} sm={4} md={4}>
-                <Button color="danger">
+                <Button 
+                    color="danger" 
+                    onClick={() => dispatch(addProduct({
+                        ...hotelData,
+                        startDatum: startDatum.clone(),
+                        endDatum: endDatum.clone(),
+                        preis: hotelData.preis * anzahlNacht,
+                        id: uuid(),
+                    }))}>
                     Gesamt ab {hotelData.preis * anzahlNacht}€
                 </Button>
             </GridItem>
