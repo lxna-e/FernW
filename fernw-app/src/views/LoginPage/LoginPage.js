@@ -44,7 +44,7 @@ export default function LoginPage(props) {
           backgroundPosition: "top center",
         }}
       >
-        <div className={classes.container}>
+        <div id="id01" className={classes.container}>
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={4}>
               <Card className={classes[cardAnimaton]}>
@@ -147,3 +147,5 @@ export default function LoginPage(props) {
     </div>
   );
 }
+var modal = document.getElementById('id01');
+
