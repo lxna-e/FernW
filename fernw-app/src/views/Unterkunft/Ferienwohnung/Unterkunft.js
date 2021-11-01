@@ -147,16 +147,16 @@ export default function FerienW(props) {
                     </List>
                   </CardBody>
                   <CardFooter className={classes.cardFooter} >
-                    <Button
-                      simple
-                      color="primary"
-                      size="lg"
-                      variant="contained"
-                      endIcon={<NavigateNext />}>
-                      <Link to="/reisemittel">
+                    <Link to="/reisemittel">
+                      <Button
+                        simple
+                        color="primary"
+                        size="lg"
+                        variant="contained"
+                        endIcon={<NavigateNext />}>
                         Zur Reisemittelauswahl
-                      </Link>
-                    </Button>
+                      </Button>
+                    </Link>
                   </CardFooter>
                 </Card>
               </GridItem>
