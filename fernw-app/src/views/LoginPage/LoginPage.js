@@ -35,11 +35,12 @@ function init (){
   if (loginButton) {
     loginButton.addEventListener("click", () => {
       login_name = firstName.value;
-      alert(login_name);
       window.location.reload(false);
     })
   }
 }
+
+export {login_name}
 
 export default function LoginPage(props) {
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");

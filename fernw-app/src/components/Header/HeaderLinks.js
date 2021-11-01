@@ -27,11 +27,15 @@ import Button from "components/CustomButtons/Button.js";
 import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 
+import { login_name } from "views/LoginPage/LoginPage";
+
 const useStyles = makeStyles(styles);
+
+const login = login_name;
 
 document.addEventListener('DOMContentLoaded', init, false);
 function init() {
-  document.getElementById("login").innerHTML = login_name;
+  document.getElementById("login").innerHTML = login;
 }
 
 export default function HeaderLinks(props) {
