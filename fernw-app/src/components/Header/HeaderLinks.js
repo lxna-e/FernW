@@ -29,6 +29,11 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 
 const useStyles = makeStyles(styles);
 
+document.addEventListener('DOMContentLoaded', init, false);
+function init() {
+  document.getElementById("login").innerHTML = login_name;
+}
+
 export default function HeaderLinks(props) {
   const classes = useStyles();
   const prodAnzahl = useSelector(selectProducts).length;
@@ -117,7 +122,7 @@ export default function HeaderLinks(props) {
       </ListItem>
       <ListItem className={classes.listItem}>
         <Link to="/login" className={classes.navLink}>
-          <AccountCircle className={classes.icons} /> Login
+          <AccountCircle className={classes.icons} /> <span id="login"></span>
         </Link>
       </ListItem>
     </List>

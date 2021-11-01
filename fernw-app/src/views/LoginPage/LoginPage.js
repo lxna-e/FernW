@@ -26,6 +26,21 @@ import CustomHeader from "components/CustomHeader/CustomHeader";
 
 const useStyles = makeStyles(styles);
 
+
+var login_name = ""
+document.addEventListener('DOMContentLoaded', init, false);
+function init (){
+  const firstName = document.getElementById("first");
+  const loginButton = document.getElementById("button_click");
+  if (loginButton) {
+    loginButton.addEventListener("click", () => {
+      login_name = firstName.value;
+      alert(login_name);
+      window.location.reload(false);
+    })
+  }
+}
+
 export default function LoginPage(props) {
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
   setTimeout(function () {
@@ -48,7 +63,7 @@ export default function LoginPage(props) {
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={4}>
               <Card className={classes[cardAnimaton]}>
-                <form className={classes.form}>
+                <form className={classes.form} id="loginForm">
                   <CardHeader color="primary" className={classes.cardHeader}>
                     <h4>Login</h4> 
                     <div className={classes.socialLine}>
@@ -133,7 +148,7 @@ export default function LoginPage(props) {
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button id="button_click" simple color="danger" size="lg" type="Submit">
+                    <Button id="button_click" simple color="danger" size="lg">
                       Anmelden
                     </Button>
                   </CardFooter>
