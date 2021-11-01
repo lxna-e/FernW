@@ -33,15 +33,6 @@ export default function LoginPage(props) {
   }, 700);
   const classes = useStyles();
   const { ...rest } = props;
-
-  var modal = "Login"
-  function test(){
-    modal = document.getElementById('first').labelText;
-    alert(modal);
-  }
-
-  document.getElementById('button_click').addEventListener("click", test)
-
   return (
     <div>
       <CustomHeader {...rest} />
@@ -142,7 +133,7 @@ export default function LoginPage(props) {
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button id="button_click" onClick="test()" simple color="danger" size="lg">
+                    <Button id="button_click" simple color="danger" size="lg" type="Submit">
                       Anmelden
                     </Button>
                   </CardFooter>
