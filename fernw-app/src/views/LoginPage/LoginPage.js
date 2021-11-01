@@ -33,6 +33,15 @@ export default function LoginPage(props) {
   }, 700);
   const classes = useStyles();
   const { ...rest } = props;
+
+  var modal = "Login"
+  function test(){
+    modal = document.getElementById('first').labelText;
+    alert(modal);
+  }
+
+  document.getElementById('button_click').addEventListener("click", test)
+
   return (
     <div>
       <CustomHeader {...rest} />
@@ -44,13 +53,13 @@ export default function LoginPage(props) {
           backgroundPosition: "top center",
         }}
       >
-        <div id="id01" className={classes.container}>
+        <div className={classes.container}>
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={4}>
               <Card className={classes[cardAnimaton]}>
                 <form className={classes.form}>
                   <CardHeader color="primary" className={classes.cardHeader}>
-                    <h4>Login</h4>
+                    <h4>Login</h4> 
                     <div className={classes.socialLine}>
                       <Button
                         justIcon
@@ -133,7 +142,7 @@ export default function LoginPage(props) {
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button simple color="danger" size="lg">
+                    <Button id="button_click" onClick="test()" simple color="danger" size="lg">
                       Anmelden
                     </Button>
                   </CardFooter>
@@ -147,5 +156,3 @@ export default function LoginPage(props) {
     </div>
   );
 }
-var modal = document.getElementById('id01');
-
