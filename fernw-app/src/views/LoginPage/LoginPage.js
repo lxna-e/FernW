@@ -21,26 +21,12 @@ import CustomInput from "components/CustomInput/CustomInput.js";
 
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
+import { loginName } from "components/Header/HeaderLinks";
+
 import image from "assets/img/bg7.jpg";
 import CustomHeader from "components/CustomHeader/CustomHeader";
 
 const useStyles = makeStyles(styles);
-
-
-var login_name = ""
-document.addEventListener('DOMContentLoaded', init, false);
-function init (){
-  const firstName = document.getElementById("first");
-  const loginButton = document.getElementById("button_click");
-  if (loginButton) {
-    loginButton.addEventListener("click", () => {
-      login_name = firstName.value;
-      window.location.reload(false);
-    })
-  }
-}
-
-export {login_name}
 
 export default function LoginPage(props) {
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
@@ -149,7 +135,7 @@ export default function LoginPage(props) {
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button id="button_click" simple color="danger" size="lg">
+                    <Button onClick={() => loginName(document.getElementById("first").value)} id="button_click" simple color="danger" size="lg">
                       Anmelden
                     </Button>
                   </CardFooter>

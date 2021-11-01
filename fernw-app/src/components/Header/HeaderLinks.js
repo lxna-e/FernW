@@ -26,16 +26,18 @@ import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-
-import { login_name } from "views/LoginPage/LoginPage";
+import LandingPage from "views/Datenschutz/Datenschutz";
 
 const useStyles = makeStyles(styles);
 
-const login = login_name;
+let login = "LOGIN"
 
-document.addEventListener('DOMContentLoaded', init, false);
-function init() {
-  document.getElementById("login").innerHTML = login;
+export function loginName(props) {
+  alert(props);
+  if (props != null) {
+    login = props;
+    //Direkte Umleitung auf die Startseite einfügen!!!
+  }
 }
 
 export default function HeaderLinks(props) {
@@ -126,7 +128,7 @@ export default function HeaderLinks(props) {
       </ListItem>
       <ListItem className={classes.listItem}>
         <Link to="/login" className={classes.navLink}>
-          <AccountCircle className={classes.icons} /> <span id="login"></span>
+          <AccountCircle className={classes.icons} /> {login}
         </Link>
       </ListItem>
     </List>
