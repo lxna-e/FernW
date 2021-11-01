@@ -1,9 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 import { createBrowserHistory } from "history";
 import { Router, Route, Switch } from "react-router-dom";
 
 import "assets/scss/material-kit-react.scss?v=1.10.0";
+import store from "./app/store.js"
 
 // pages for this product
 import Components from "views/Components/Components.js";
@@ -28,35 +30,39 @@ import Stadttour from "views/Aktivitaeten/Stadttour/Unterkunft.js";
 import Wanderung from "views/Aktivitaeten/Wanderung/Unterkunft.js";
 import Appartement from "views/Unterkunft/Appartement/Unterkunft.js";
 import Kreuzfahrtschiff from "views/Unterkunft/Kreuzfahrtschiff/Unterkunft.js";
+import Warenkorb from "views/Warenkorb/Warenkorb.js";
 
 var hist = createBrowserHistory();
 
 ReactDOM.render(
-  <Router history={hist}>
-    <Switch>
-      <Route path="/" exact component={LandingPage} />
-      <Route path="/profile-page" component={ProfilePage} />
-      <Route path="/login" component={LoginPage} />
-      <Route path="/beispiele" component={Components} />
-      <Route path="/aktivitaeten" component={Aktivitaeten} />
-      <Route path="/aktivitaeten/stadttour" component={Stadttour} />
-      <Route path="/aktivitaeten/wanderung" component={Wanderung} />
-      <Route path="/pauschalreisen" component={Pauschalreisen} />
-      <Route path="/pauschalreisen/bus" component={Bus1} />
-      <Route path="/pauschalreisen/strandurlaub" component={Strandurlaub} />
-      <Route path="/pauschalreisen/Winterurlaub" component={Winterurlaub} />
-      <Route path="/reisemittel" component={Reisemittel} />
-      <Route path="/reisemittel/bus" component={Bus} />
-      <Route path="/reisemittel/bahn" component={Bahn} />
-      <Route path="/reisemittel/flug" component={Flug} />
-      <Route path="/unterkunft" exact component={Unterkunft} />
-      <Route path="/impressum" component={Impressum} />
-      <Route path="/Datenschutz" component={Datenschutz} />
-      <Route path="/unterkunft/ferienwohnung" component={Ferienwohnung} />
-      <Route path="/unterkunft/hotel" component={Hotel} />
-      <Route path="/unterkunft/appartement" component={Appartement} />
-      <Route path="/unterkunft/kreuzfahrtschiff" component={Kreuzfahrtschiff} />
-    </Switch>
-  </Router>,
+  <Provider store={store}>
+    <Router history={hist}>
+      <Switch>
+        <Route path="/" exact component={LandingPage} />
+        <Route path="/profile-page" component={ProfilePage} />
+        <Route path="/login" component={LoginPage} />
+        <Route path="/beispiele" component={Components} />
+        <Route path="/aktivitaeten" component={Aktivitaeten} />
+        <Route path="/aktivitaeten/stadttour" component={Stadttour} />
+        <Route path="/aktivitaeten/wanderung" component={Wanderung} />
+        <Route path="/pauschalreisen" component={Pauschalreisen} />
+        <Route path="/pauschalreisen/bus" component={Bus1} />
+        <Route path="/pauschalreisen/strandurlaub" component={Strandurlaub} />
+        <Route path="/pauschalreisen/Winterurlaub" component={Winterurlaub} />
+        <Route path="/reisemittel" component={Reisemittel} />
+        <Route path="/reisemittel/bus" component={Bus} />
+        <Route path="/reisemittel/bahn" component={Bahn} />
+        <Route path="/reisemittel/flug" component={Flug} />
+        <Route path="/unterkunft" exact component={Unterkunft} />
+        <Route path="/impressum" component={Impressum} />
+        <Route path="/Datenschutz" component={Datenschutz} />
+        <Route path="/unterkunft/ferienwohnung" component={Ferienwohnung} />
+        <Route path="/unterkunft/hotel" component={Hotel} />
+        <Route path="/unterkunft/appartement" component={Appartement} />
+        <Route path="/unterkunft/kreuzfahrtschiff" component={Kreuzfahrtschiff} />
+        <Route path="/warenkorb" component={Warenkorb} />
+      </Switch>
+    </Router>
+  </Provider>,
   document.getElementById("root")
 );

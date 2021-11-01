@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 // react Datetime picker
 import Datetime from "react-datetime"
 import "react-datetime/css/react-datetime.css";
@@ -8,13 +9,13 @@ import moment from "moment";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
+import { NavigateNext } from "@material-ui/icons";
 
 // core components
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
-// import Parallax from "components/Parallax/Parallax.js";
 
 import styles from "assets/jss/material-kit-react/views/hotelPage.js";
 
@@ -31,6 +32,7 @@ import CardBody from "components/Card/CardBody.js";
 import CustomInput from "components/CustomInput/CustomInput";
 import { Search } from "@material-ui/icons";
 import Hotelelement from "components/Hotelelement";
+import CardFooter from "components/Card/CardFooter";
 
 const useStyles = makeStyles(styles);
 
@@ -41,7 +43,7 @@ const alleHotels = [
     name: "Robinson Fleesensee",
     info: "Vollpension, Hotel",
     loc: "Göhring-Lebbin",
-    preis: 570
+    preis: 80
   },
   {
     id: 2,
@@ -49,7 +51,7 @@ const alleHotels = [
     name: "Falkensteiner Hotel, Montenegro",
     info: "Halbpension, Hotel",
     loc: "Becici",
-    preis: 284
+    preis: 127
   },
   {
     id: 3,
@@ -57,7 +59,7 @@ const alleHotels = [
     name: "Hotel Klettur",
     info: "Frühstück, Hotel",
     loc: "Reykjavik",
-    preis: 267
+    preis: 94
   },
 ];
 
@@ -72,7 +74,7 @@ export default function Hotel(props) {
   const validEnd = (current) => { return current.isAfter(yesterday) && (!startDate || current.isAfter(startDate)) }
   // const { ...rest } = props;
 
-  
+
   return (
     <div>
       <CustomHeader {...props} />
@@ -123,8 +125,8 @@ export default function Hotel(props) {
                             placeholder: "Filter nach Land..."
                           }}
                         />
-                        <Button justIcon round color="white" disabled={!(startDate && endDate)} 
-                        onClick={() => {console.log(alleHotels);if(startDate && endDate) {setHotelListe(alleHotels)}}}>
+                        <Button justIcon round color="white" disabled={!(startDate && endDate)}
+                          onClick={() => { if (startDate && endDate) { setHotelListe(alleHotels) } }}>
                           <Search className={classes.searchIcon} />
                         </Button>
 
@@ -134,42 +136,28 @@ export default function Hotel(props) {
                   <CardBody>
                     <h3>Unsere Bestseller</h3>
                     <List>
-                      {/* <ListItem>
-                        <Hotelelement imgSrc={montenegro}
-                          hotelName={"Robinson Fleesensee"}
-                          hotelInformation={"Vollpension, Hotel"}
-                          location={"Göhring-Lebbin"}
-                          preis={570}
-                          startDatum={startDate}
-                          endDatum={endDate}
-                        />
-                      </ListItem>
-                      <ListItem>
-                        <Hotelelement imgSrc={deutschland1}
-                          hotelName={"Falkensteiner Hotel, Montenegro"}
-                          location={"Becici"}
-                          hotelInformation={"Halbpension, Hotel"}
-                          preis={184}
-                          startDatum={startDate}
-                          endDatum={endDate}/>
-                      </ListItem>
-                      <ListItem>
-                        <Hotelelement imgSrc={Island1} hotelName={"Hotel Klettur"} location={"Reykjavik"} hotelInformation={"Frühstück, Hotel"} preis={267} startDatum={startDate} endDatum={endDate}/>
-                      </ListItem> */}
                       {hotelListe.map(hotel => (
                         <ListItem key={hotel.id}>
-                           <Hotelelement hotelData={hotel}
-                            // imgSrc={hotel.img}
-                            // hotelName={hotel.name}
-                            // hotelInformation={hotel.info}
-                            // preis={hotel.preis}
-                            // location={hotel.loc}
+                          <Hotelelement
+                            hotelData={hotel}
                             startDatum={startDate}
-                            endDatum={endDate}/>
+                            endDatum={endDate} />
                         </ListItem>)
                       )}
                     </List>
                   </CardBody>
+                  <CardFooter className={classes.cardFooter} >
+                    <Button
+                      simple
+                      color="primary"
+                      size="lg"
+                      variant="contained"
+                      endIcon={<NavigateNext />}>
+                      <Link to="/reisemittel">
+                        Zur Reisemittelauswahl
+                      </Link>
+                    </Button>
+                  </CardFooter>
                 </Card>
               </GridItem>
             </GridContainer>

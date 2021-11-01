@@ -5,11 +5,13 @@ import PropTypes from "prop-types";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // material-ui core components
-import { List, ListItem } from "@material-ui/core";
+import { List, ListItem, Tooltip } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 // @material-ui/icons
 import Favorite from "@material-ui/icons/Favorite";
+
+import Button from "components/CustomButtons/Button"
 
 import styles from "assets/jss/material-kit-react/components/footerStyle.js";
 
@@ -35,7 +37,7 @@ export default function Footer(props) {
               <a
                 href="/impressum"
                 className={classes.block}
-                // target="_blank"
+              // target="_blank"
               >
                 Impressum
               </a>
@@ -44,21 +46,79 @@ export default function Footer(props) {
               <a
                 href="/datenschutz"
                 className={classes.block}
-                // target="_blank"
+              // target="_blank"
               >
                 Datenschutz
               </a>
             </ListItem>
           </List>
-          
+
         </div>
         <div className={classes.right}>
-          &copy; {1900 + new Date().getYear()} 
-          <a
+          <List className={classes.list}>
+            {/* <ListItem className={classes.listItem}>
+        // <Tooltip title="Delete">
+        //   <IconButton aria-label="Delete">
+        //     <DeleteIcon />
+        //   </IconButton>
+        // </Tooltip>
+        <Tooltip
+          id="instagram-twitter"
+          title="Follow us on twitter"
+          placement={window.innerWidth > 959 ? "top" : "left"}
+          classes={{ tooltip: classes.tooltip }}
+        >
+          <Button
+            href="https://twitter.com"
+            target="_blank"
+            color="transparent"
+            className={classes.navLink}
+          >
+            <i className={classes.socialIcons + " fab fa-twitter"} />
+          </Button>
+        </Tooltip>
+      </ListItem> */}
+            <ListItem className={classes.inlineBlock}>
+              <Tooltip
+                id="instagram-facebook"
+                title="Follow us on facebook"
+                placement={window.innerWidth > 959 ? "top" : "left"}
+                classes={{ tooltip: classes.tooltip }}
+              >
+                <Button
+                  color="transparent"
+                  href="https://www.facebook.com"
+                  target="_blank"
+                  className={classes.a}
+                >
+                  <i className={classes.socialIcons + " fab fa-facebook"} />
+                </Button>
+              </Tooltip>
+            </ListItem>
+            <ListItem className={classes.inlineBlock}>
+              <Tooltip
+                id="instagram-tooltip"
+                title="Follow us on instagram"
+                placement={window.innerWidth > 959 ? "top" : "left"}
+                classes={{ tooltip: classes.tooltip }}
+              >
+                <Button
+                  color="transparent"
+                  href="https://www.instagram.com"
+                  target="_blank"
+                  className={classes.a}
+                >
+                  <i className={classes.socialIcons + " fab fa-instagram"} />
+                </Button>
+              </Tooltip>
+            </ListItem>
+          &copy; {1900 + new Date().getYear()}
+          </List>
+          {/* <a
             href="https://www.creative-tim.com?ref=mkr-footer"
-            className={aClasses}
+            className={classes.a}
             target="_blank">
-          </a>
+          </a> */}
         </div>
       </div>
     </footer>
