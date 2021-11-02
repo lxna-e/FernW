@@ -83,7 +83,7 @@ export default function Unterkunft(props) {
             <GridContainer justify="center">
               <GridItem xs={3} sm={3} md={3}>
                 <Link to={"/unterkunft/hotel"}>
-                  <Button size="lg" color="primary" className={classes.navLink}>
+                  <Button size="lg" color="danger" className={classes.navLink}>
                     <div><img src={hotel} className={classes.linkImage + " slick-image"} width="100%" /></div>
                     Hotels
                   </Button>
@@ -184,7 +184,7 @@ export default function Unterkunft(props) {
                     <Link to="/reisemittel">
                       <Button
                         simple
-                        color="primary"
+                        color="danger"
                         size="lg"
                         variant="contained"
                         endIcon={<NavigateNext />}>

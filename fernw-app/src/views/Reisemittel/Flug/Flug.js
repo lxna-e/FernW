@@ -40,9 +40,6 @@ const alleFlüge = [
   {
     id: 1,
     img: biene,
-    name: "Frankfurt nach",
-    // info: "Vollpension, Hotel",
-    loc: "Montenegro",
     preis: 80
   },
   // {
@@ -65,11 +62,14 @@ const alleFlüge = [
 
 export default function Flug(props) {
   const classes = useStyles();
-  const [flugListe, setFlugListe] = useState([])
+  const [flugListe, setFlugListe] = useState([]);
   const [startDate, setStartDate] = useState("");
-  const dateFormat = "DD.MM.YYYY"
+  const [startflughafen, setStartFlughafen] = useState();
+  const [zielflughafen, setZielFlughafen] = useState();
+  const dateFormat = "DD.MM.YYYY";
+  const timeForamt = "H:mm";
   const yesterday = moment().subtract(1, "day");
-  const validStart = (current) => { return current.isAfter(yesterday) }
+  const validStart = (current) => { return current.isAfter(yesterday) };
   // const validEnd = (current) => { return current.isAfter(yesterday) && (!startDate || current.isAfter(startDate)) }
   // const { ...rest } = props;
 
@@ -97,43 +97,30 @@ export default function Flug(props) {
                         </InputLabel>
                         <Datetime className={classes.description}
                           closeOnSelect={true}
-                          timeFormat={true}
+                          timeFormat={timeForamt}
                           onChange={(selected) => { setStartDate(selected) }}
                           dateFormat={dateFormat}
                           isValidDate={validStart}
                           inputProps={{ placeholder: "Auswahl Startdatum" }}
                         />
                        </GridItem>
-                      {/*<GridItem className={classes.listItem}>
-                        <InputLabel className={classes.label}>
-                          Enddatum
-                        </InputLabel>
-                        <Datetime className={classes.description}
-                          closeOnSelect={true}
-                          timeFormat={false}
-                          onChange={(selected) => { setEndDate(selected) }}
-                          dateFormat={dateFormat}
-                          isValidDate={validEnd}
-                          inputProps={{ placeholder: "Auswahl Enddatum" }}
-                        />
-                      </GridItem> */}
                       <GridItem className={classes.listItem}>
-                       <div> 
                         <CustomInput
                           white
                           inputProps={{
-                            placeholder: "Filter nach Startflughafen"
+                            placeholder: "Startflughafen",
+                            onChange: (event) => {console.log(event.target.value); setStartFlughafen(event.target.value)}
                           }}
                         />
-                        </div>
-                        <div>
+                        </GridItem>
+                        <GridItem className={classes.listItem}>
                          <CustomInput
                           white
                           inputProps={{
-                            placeholder: "Filter nach Zielflughafen"
+                            placeholder: "Zielflughafen",
+                            onChange: (event) => {console.log(event.target.values); setZielFlughafen(event.target.value)}
                           }}
                         />
-                        </div>
                         <Button justIcon round color="white" disabled={!(startDate)}
                           onClick={() => { if (startDate) { setFlugListe(alleFlüge) } }}>
                           <Search className={classes.searchIcon} />
@@ -150,6 +137,8 @@ export default function Flug(props) {
                           <Flugelement
                             flugData={flug}
                             startDatum={startDate}
+                            startFlughafen={startflughafen}
+                            zielFlughafen={zielflughafen}
                            />
                         </ListItem>)
                       )}
@@ -159,7 +148,7 @@ export default function Flug(props) {
                     <Link to="/aktivitaeten">
                       <Button
                         simple
-                        color="primary"
+                        color="danger"
                         size="lg"
                         variant="contained"
                         endIcon={<NavigateNext />}>

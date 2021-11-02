@@ -85,7 +85,7 @@ export default function FerienW(props) {
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={8}>
                 <h2 className={classes.title} color="gray">
-                  Hotels
+                  Ferienwohnungen
                 </h2>
                 <br />
                 <Card>
@@ -150,7 +150,7 @@ export default function FerienW(props) {
                     <Link to="/reisemittel">
                       <Button
                         simple
-                        color="primary"
+                        color="danger"
                         size="lg"
                         variant="contained"
                         endIcon={<NavigateNext />}>

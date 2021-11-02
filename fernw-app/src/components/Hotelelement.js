@@ -66,11 +66,6 @@ export default function Hotelelement(props) {
 
 Hotelelement.propTypes = {
     hotelData: PropTypes.object,
-    imgSrc: PropTypes.any,
-    hotelName: PropTypes.string,
-    hotelInformation: PropTypes.string,
-    location: PropTypes.string,
-    preis: PropTypes.number,
     startDatum: PropTypes.any,
     endDatum: PropTypes.any
 };
