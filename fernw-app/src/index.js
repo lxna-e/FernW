@@ -22,7 +22,7 @@ import Ferienwohnung from "views/Unterkunft/Ferienwohnung/Unterkunft.js";
 import Hotel from "views/Unterkunft/Hotel/Hotel.js";
 import Bus from "views/Reisemittel/Bus/Unterkunft.js";
 import Bahn from "views/Reisemittel/Bahn/Unterkunft.js";
-import Flug from "views/Reisemittel/Flug/Unterkunft.js";
+import Flug from "views/Reisemittel/Flug/Flug.js";
 import Bus1 from "views/Pauschalreisen/Bus/Unterkunft.js";
 import Strandurlaub from "views/Pauschalreisen/Strandurlaub/Unterkunft.js";
 import Winterurlaub from "views/Pauschalreisen/Winterurlaub/Unterkunft.js";
@@ -49,7 +49,7 @@ ReactDOM.render(
         <Route path="/pauschalreisen/bus" component={Bus1} />
         <Route path="/pauschalreisen/strandurlaub" component={Strandurlaub} />
         <Route path="/pauschalreisen/Winterurlaub" component={Winterurlaub} />
-        <Route path="/reisemittel" component={Reisemittel} />
+        <Route path="/reisemittel" exact component={Reisemittel} />
         <Route path="/reisemittel/bus" component={Bus} />
         <Route path="/reisemittel/bahn" component={Bahn} />
         <Route path="/reisemittel/flug" component={Flug} />
