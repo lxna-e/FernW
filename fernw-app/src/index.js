@@ -20,8 +20,8 @@ import Impressum from "views/Impressum/Impressum.js";
 import Datenschutz from "views/Datenschutz/Datenschutz.js";
 import Ferienwohnung from "views/Unterkunft/Ferienwohnung/Unterkunft.js";
 import Hotel from "views/Unterkunft/Hotel/Hotel.js";
-import Bus from "views/Reisemittel/Bus/Unterkunft.js";
-import Bahn from "views/Reisemittel/Bahn/Unterkunft.js";
+import Bus from "views/Reisemittel/Bus/Bus.js";
+import Bahn from "views/Reisemittel/Bahn/Bahn.js";
 import Flug from "views/Reisemittel/Flug/Flug.js";
 import Bus1 from "views/Pauschalreisen/Bus/Unterkunft.js";
 import Strandurlaub from "views/Pauschalreisen/Strandurlaub/Unterkunft.js";
@@ -45,7 +45,7 @@ ReactDOM.render(
         <Route path="/aktivitaeten" component={Aktivitaeten} />
         <Route path="/aktivitaeten/stadttour" component={Stadttour} />
         <Route path="/aktivitaeten/wanderung" component={Wanderung} />
-        <Route path="/pauschalreisen" component={Pauschalreisen} />
+        <Route path="/pauschalreisen"  component={Pauschalreisen} />
         <Route path="/pauschalreisen/bus" component={Bus1} />
         <Route path="/pauschalreisen/strandurlaub" component={Strandurlaub} />
         <Route path="/pauschalreisen/Winterurlaub" component={Winterurlaub} />
