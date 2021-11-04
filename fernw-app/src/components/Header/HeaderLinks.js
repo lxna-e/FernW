@@ -36,7 +36,7 @@ export function loginName(props) {
   alert(props);
   if (props != null) {
     login = props;
-    //Direkte Umleitung auf die Startseite einfügen!!!
+    <Link to={"/landingpage"} className={classes.dropdownLink}></Link>
   }
 }
 
