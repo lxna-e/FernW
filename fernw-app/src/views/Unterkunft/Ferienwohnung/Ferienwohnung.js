@@ -21,9 +21,9 @@ import styles from "assets/jss/material-kit-react/views/hotelPage.js";
 
 // Sections for this page
 import hotel from "assets/img/Hotelbild.png";
-import montenegro from "assets/img/montenegro1.PNG"
-import deutschland1 from "assets/img/deutschland1.PNG"
-import Island1 from "assets/img/Island1.PNG"
+import ferienwohnung1 from "assets/img/F1.jpg"
+import ferienwohnung2 from "assets/img/F2.jpg"
+import ferienwohnung3 from "assets/img/F3.jpg"
 import CustomHeader from "components/CustomHeader/CustomHeader.js";
 import { List, ListItem } from "@material-ui/core";
 import Card from "components/Card/Card.js";
@@ -39,7 +39,7 @@ const useStyles = makeStyles(styles);
 const alleHotels = [
   {
     id: 1,
-    img: montenegro,
+    img: ferienwohnung1,
     name: "Robinson Fleesensee",
     info: "Vollpension, Hotel",
     loc: "Göhring-Lebbin",
@@ -47,7 +47,7 @@ const alleHotels = [
   },
   {
     id: 2,
-    img: deutschland1,
+    img: ferienwohnung2,
     name: "Falkensteiner Hotel, Montenegro",
     info: "Halbpension, Hotel",
     loc: "Becici",
@@ -55,7 +55,7 @@ const alleHotels = [
   },
   {
     id: 3,
-    img: Island1,
+    img: ferienwohnung3,
     name: "Hotel Klettur",
     info: "Frühstück, Hotel",
     loc: "Reykjavik",
