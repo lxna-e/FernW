@@ -26,8 +26,8 @@ import Flug from "views/Reisemittel/Flug/Flug.js";
 import Bus1 from "views/Pauschalreisen/Bus/Unterkunft.js";
 import Strandurlaub from "views/Pauschalreisen/Strandurlaub/Unterkunft.js";
 import Winterurlaub from "views/Pauschalreisen/Winterurlaub/Unterkunft.js";
-import Stadttour from "views/Aktivitaeten/Stadttour/Unterkunft.js";
-import Wanderung from "views/Aktivitaeten/Wanderung/Unterkunft.js";
+import Stadttour from "views/Aktivitaeten/Stadttour/Stadttour.js";
+import Wanderung from "views/Aktivitaeten/Wanderung/Wanderung.js";
 import Appartement from "views/Unterkunft/Appartement/Appartement.js";
 import Kreuzfahrtschiff from "views/Unterkunft/Kreuzfahrtschiff/Kreuzfahrt.js";
 import Warenkorb from "views/Warenkorb/Warenkorb.js";
@@ -42,7 +42,7 @@ ReactDOM.render(
         <Route path="/profile-page" component={ProfilePage} />
         <Route path="/login" component={LoginPage} />
         <Route path="/beispiele" component={Components} />
-        <Route path="/aktivitaeten" component={Aktivitaeten} />
+        <Route path="/aktivitaeten" exact component={Aktivitaeten} />
         <Route path="/aktivitaeten/stadttour" component={Stadttour} />
         <Route path="/aktivitaeten/wanderung" component={Wanderung} />
         <Route path="/pauschalreisen"  component={Pauschalreisen} />
