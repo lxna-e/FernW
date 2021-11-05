@@ -43,7 +43,7 @@ const alleHotels = [
     name: "Robinson Fleesensee",
     info: "Vollpension, Hotel",
     loc: "Göhring-Lebbin",
-    preis: 570
+    preis: 80
   },
   {
     id: 2,
@@ -51,7 +51,7 @@ const alleHotels = [
     name: "Falkensteiner Hotel, Montenegro",
     info: "Halbpension, Hotel",
     loc: "Becici",
-    preis: 284
+    preis: 127
   },
   {
     id: 3,
@@ -59,11 +59,11 @@ const alleHotels = [
     name: "Hotel Klettur",
     info: "Frühstück, Hotel",
     loc: "Reykjavik",
-    preis: 267
+    preis: 94
   },
 ];
 
-export default function FerienW(props) {
+export default function Hotel(props) {
   const classes = useStyles();
   const [hotelListe, setHotelListe] = useState([])
   const [startDate, setStartDate] = useState("");
@@ -85,7 +85,7 @@ export default function FerienW(props) {
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={8}>
                 <h2 className={classes.title} color="gray">
-                  Hotels
+                  Kreuzfahrten
                 </h2>
                 <br />
                 <Card>
@@ -168,4 +168,14 @@ export default function FerienW(props) {
     </div>
   );
 }
+// import React from "react";
+// import CustomHeader from "components/CustomHeader/CustomHeader";
 
+// export default function Unterkunft() {
+//   return (
+//     <div>
+//       <CustomHeader />
+//       <div>Ich zeige die Unterkünfte an</div>
+//     </div>
+//   );
+// }
