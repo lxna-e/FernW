@@ -32,11 +32,16 @@ const useStyles = makeStyles(styles);
 
 let login = "LOGIN"
 
+if (document.cookie) {
+  login = document.cookie;
+}
+//let login = "LOGIN";
+
 export function loginName(props) {
-  alert(props);
   if (props != null) {
+    document.cookie = props;
     login = props;
-    <Link to={"/landingpage"} className={classes.dropdownLink}></Link>
+    window.location.replace("/");
   }
 }
 
