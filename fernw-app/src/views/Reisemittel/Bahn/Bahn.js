@@ -21,7 +21,7 @@ import styles from "assets/jss/material-kit-react/views/hotelPage.js";
 
 // Sections for this page
 import flugzeug from "assets/img/Flugzeug.png";
-import biene from "assets/img/biene.jpg"
+import bahn2 from "assets/img/Bahn2.jpg"
 // import deutschland1 from "assets/img/deutschland1.PNG"
 // import Island1 from "assets/img/Island1.PNG"
 import CustomHeader from "components/CustomHeader/CustomHeader.js";
@@ -39,7 +39,7 @@ const useStyles = makeStyles(styles);
 const alleFlüge = [
   {
     id: 1,
-    img: biene,
+    img: bahn2,
     name: "Frankfurt nach",
     // info: "Vollpension, Hotel",
     loc: "Montenegro",
@@ -84,7 +84,7 @@ export default function Flug(props) {
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={8}>
                 <h2 className={classes.title} color="gray">
-                  Flüge
+                  Bahnfahrten
                 </h2>
                 <br />
                 <Card>
@@ -122,7 +122,7 @@ export default function Flug(props) {
                         <CustomInput
                           white
                           inputProps={{
-                            placeholder: "Filter nach Startflughafen"
+                            placeholder: "Filter nach Startbahnhof"
                           }}
                         />
                         </div>
@@ -130,7 +130,7 @@ export default function Flug(props) {
                          <CustomInput
                           white
                           inputProps={{
-                            placeholder: "Filter nach Zielflughafen"
+                            placeholder: "Filter nach Zielbahnhof"
                           }}
                         />
                         </div>
