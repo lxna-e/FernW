@@ -13,10 +13,13 @@ export const cartSlice = createSlice({
         removeProduct: (state, action) => {
             console.log("remove product", state, action);
             state.products = state.products.filter(item => item.id !== action.payload.id);
+        },
+        checkout: state => {
+            state.products = [];
         }
     }
-})
+});
 
-export const selectProducts = (state) => { console.log("get products", state); return state.products }
+export const selectProducts = (state) => { console.log("get products", state.warenkorb); return state.warenkorb.products };
 
-export const { addProduct, removeProduct } = cartSlice.actions;
+export const { addProduct, removeProduct, checkout } = cartSlice.actions;

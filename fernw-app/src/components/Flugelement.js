@@ -23,8 +23,8 @@ const useStyles = makeStyles(styles);
 export default function Flugelement(props) {
     const classes = useStyles();
     const dispatch = useDispatch();
-    const { flugData, startDatum } = props;
-    // const dateFormat = "DD.MM.YYYY HH:MM"
+    const { flugData, startDatum, startFlughafen, zielFlughafen } = props;
+    const dateFormat = "DD.MM.YYYY HH:mm"
     // const anzahlNacht = moment(endDatum).diff(startDatum, "days")
     return (
         <GridContainer alignItems={"center"}>
@@ -39,11 +39,12 @@ export default function Flugelement(props) {
             </GridItem>
             <GridItem  xs={4} sm={4} md={4}>
                 <div>
-                    <h4>{flugData.name}</h4>
+                    <h4>{startFlughafen}</h4>
+                    nach
+                    <h4>{zielFlughafen}</h4>
+                    {/* <br /> */}
 
-                    <h5>{flugData.loc}</h5>
-                    <br />
-
+                    Abflugzeit: {startDatum.format(dateFormat)}
                  {/* {(startDatum && endDatum) ? anzahlNacht + ( anzahlNacht == 1 ? " Nacht" : " Nächte") + "," : ""} {startDatum ? moment(startDatum).format("[ab ]" + dateFormat + "[, ]") : ""}{hotelData.info} */}
                 </div>
             </GridItem>
@@ -66,11 +67,7 @@ export default function Flugelement(props) {
 
 Flugelement.propTypes = {
     flugData: PropTypes.object,
-    imgSrc: PropTypes.any,
-    flugName: PropTypes.string,
-    flugInformation: PropTypes.string,
-    location: PropTypes.string,
-    preis: PropTypes.number,
+    startFlughafen: PropTypes.string,
+    zielFlughafen: PropTypes.string,
     startDatum: PropTypes.any,
-    // endDatum: PropTypes.any
 };

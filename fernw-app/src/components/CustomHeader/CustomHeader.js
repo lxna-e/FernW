@@ -14,7 +14,7 @@ export default function CustomHeader(props) {
   return (
     <div>
       <Header
-        color="transparent"
+        color="primary"
         brand={
           <Link to="/">
             <img src={logo} alt="FernW" height="60" />

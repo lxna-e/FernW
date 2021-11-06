@@ -21,6 +21,9 @@ const landingPageStyle = (theme) => ({
     maxWidth: "500px",
     margin: "10px auto 0",
   },
+  description: {
+    color: "black",
+  },
   main: {
     background: "#FFFFFF",
     position: "relative",

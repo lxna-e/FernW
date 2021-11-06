@@ -150,7 +150,7 @@ export default function FerienW(props) {
                     <Link to="/reisemittel/Flug">
                       <Button
                         simple
-                        color="primary"
+                        color="danger"
                         size="lg"
                         variant="contained"
                         endIcon={<NavigateNext />}>
