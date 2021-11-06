@@ -145,7 +145,7 @@ export default function Flug(props) {
                     </List>
                   </CardBody>
                   <CardFooter className={classes.cardFooter} >
-                    <Link to="/aktivitaeten">
+                    <Link to="/aktivitaeten/stadttour">
                       <Button
                         simple
                         color="danger"

@@ -20,10 +20,10 @@ import Button from "components/CustomButtons/Button.js";
 import styles from "assets/jss/material-kit-react/views/hotelPage.js";
 
 // Sections for this page
-import hotel from "assets/img/Hotelbild.png";
-import montenegro from "assets/img/montenegro1.PNG"
-import deutschland1 from "assets/img/deutschland1.PNG"
-import Island1 from "assets/img/Island1.PNG"
+import bus from "assets/img/Busfahrt.jpeg";
+import busfahrt from "assets/img/busfahrt.jpg"
+// import deutschland1 from "assets/img/deutschland1.PNG"
+// import Island1 from "assets/img/Island1.PNG"
 import CustomHeader from "components/CustomHeader/CustomHeader.js";
 import { List, ListItem } from "@material-ui/core";
 import Card from "components/Card/Card.js";
@@ -31,61 +31,60 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 import CustomInput from "components/CustomInput/CustomInput";
 import { Search } from "@material-ui/icons";
-import Hotelelement from "components/Hotelelement";
+import Flugelement from "components/Flugelement";
 import CardFooter from "components/Card/CardFooter";
 
 const useStyles = makeStyles(styles);
 
-const alleHotels = [
+const alleFlüge = [
   {
     id: 1,
-    img: montenegro,
-    name: "Robinson Fleesensee",
-    info: "Vollpension, Hotel",
-    loc: "Göhring-Lebbin",
+    img: busfahrt,
+    name: "Frankfurt nach",
+    // info: "Vollpension, Hotel",
+    loc: "Montenegro",
     preis: 80
   },
-  {
-    id: 2,
-    img: deutschland1,
-    name: "Falkensteiner Hotel, Montenegro",
-    info: "Halbpension, Hotel",
-    loc: "Becici",
-    preis: 127
-  },
-  {
-    id: 3,
-    img: Island1,
-    name: "Hotel Klettur",
-    info: "Frühstück, Hotel",
-    loc: "Reykjavik",
-    preis: 94
-  },
+  // {
+  //   id: 2,
+  //   img: deutschland1,
+  //   name: "Falkensteiner Hotel, Montenegro",
+  //   info: "Halbpension, Hotel",
+  //   loc: "Becici",
+  //   preis: 127
+  // },
+  // {
+  //   id: 3,
+  //   img: Island1,
+  //   name: "Hotel Klettur",
+  //   info: "Frühstück, Hotel",
+  //   loc: "Reykjavik",
+  //   preis: 94
+  // },
 ];
 
-export default function Hotel(props) {
+export default function Flug(props) {
   const classes = useStyles();
-  const [hotelListe, setHotelListe] = useState([])
+  const [flugListe, setFlugListe] = useState([])
   const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
   const dateFormat = "DD.MM.YYYY"
   const yesterday = moment().subtract(1, "day");
   const validStart = (current) => { return current.isAfter(yesterday) }
-  const validEnd = (current) => { return current.isAfter(yesterday) && (!startDate || current.isAfter(startDate)) }
+  // const validEnd = (current) => { return current.isAfter(yesterday) && (!startDate || current.isAfter(startDate)) }
   // const { ...rest } = props;
 
 
   return (
     <div>
       <CustomHeader {...props} />
-      <img src={hotel} className="slick-image" width="100%" />
+      <img src={bus} className="slick-image" width="100%" />
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.section}>
           <div className={classes.container}>
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={8}>
                 <h2 className={classes.title} color="gray">
-                  Hotels
+                  Busfahrten
                 </h2>
                 <br />
                 <Card>
@@ -98,14 +97,14 @@ export default function Hotel(props) {
                         </InputLabel>
                         <Datetime className={classes.description}
                           closeOnSelect={true}
-                          timeFormat={false}
+                          timeFormat={true}
                           onChange={(selected) => { setStartDate(selected) }}
                           dateFormat={dateFormat}
                           isValidDate={validStart}
                           inputProps={{ placeholder: "Auswahl Startdatum" }}
                         />
-                      </GridItem>
-                      <GridItem className={classes.listItem}>
+                       </GridItem>
+                      {/*<GridItem className={classes.listItem}>
                         <InputLabel className={classes.label}>
                           Enddatum
                         </InputLabel>
@@ -117,16 +116,26 @@ export default function Hotel(props) {
                           isValidDate={validEnd}
                           inputProps={{ placeholder: "Auswahl Enddatum" }}
                         />
-                      </GridItem>
+                      </GridItem> */}
                       <GridItem className={classes.listItem}>
+                       <div> 
                         <CustomInput
                           white
                           inputProps={{
-                            placeholder: "Filter nach Land..."
+                            placeholder: "Filter nach Startbahnhof"
                           }}
                         />
-                        <Button justIcon round color="white" disabled={!(startDate && endDate)}
-                          onClick={() => { if (startDate && endDate) { setHotelListe(alleHotels) } }}>
+                        </div>
+                        <div>
+                         <CustomInput
+                          white
+                          inputProps={{
+                            placeholder: "Filter nach Zielbahnhof"
+                          }}
+                        />
+                        </div>
+                        <Button justIcon round color="white" disabled={!(startDate)}
+                          onClick={() => { if (startDate) { setFlugListe(alleFlüge) } }}>
                           <Search className={classes.searchIcon} />
                         </Button>
 
@@ -136,25 +145,25 @@ export default function Hotel(props) {
                   <CardBody>
                     <h3>Unsere Bestseller</h3>
                     <List>
-                      {hotelListe.map(hotel => (
-                        <ListItem key={hotel.id}>
-                          <Hotelelement
-                            hotelData={hotel}
+                      {flugListe.map(flug => (
+                        <ListItem key={flug.id}>
+                          <Flugelement
+                            flugData={flug}
                             startDatum={startDate}
-                            endDatum={endDate} />
+                           />
                         </ListItem>)
                       )}
                     </List>
                   </CardBody>
                   <CardFooter className={classes.cardFooter} >
-                    <Link to="/reisemittel/Flug">
+                    <Link to="/aktivitaeten/stadttour">
                       <Button
                         simple
                         color="primary"
                         size="lg"
                         variant="contained"
                         endIcon={<NavigateNext />}>
-                        Zur Reisemittelauswahl
+                        Zur Aktivitätenauswahl
                       </Button>
                     </Link>
                   </CardFooter>

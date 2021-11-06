@@ -18,18 +18,18 @@ import Reisemittel from "views/Reisemittel/Reisemittel.js";
 import Unterkunft from "views/Unterkunft/Unterkunft.js";
 import Impressum from "views/Impressum/Impressum.js";
 import Datenschutz from "views/Datenschutz/Datenschutz.js";
-import Ferienwohnung from "views/Unterkunft/Ferienwohnung/Unterkunft.js";
+import Ferienwohnung from "views/Unterkunft/Ferienwohnung/Ferienwohnung.js";
 import Hotel from "views/Unterkunft/Hotel/Hotel.js";
-import Bus from "views/Reisemittel/Bus/Unterkunft.js";
-import Bahn from "views/Reisemittel/Bahn/Unterkunft.js";
+import Bus from "views/Reisemittel/Bus/Bus.js";
+import Bahn from "views/Reisemittel/Bahn/Bahn.js";
 import Flug from "views/Reisemittel/Flug/Flug.js";
 import Bus1 from "views/Pauschalreisen/Bus/Unterkunft.js";
 import Strandurlaub from "views/Pauschalreisen/Strandurlaub/Unterkunft.js";
 import Winterurlaub from "views/Pauschalreisen/Winterurlaub/Unterkunft.js";
-import Stadttour from "views/Aktivitaeten/Stadttour/Unterkunft.js";
-import Wanderung from "views/Aktivitaeten/Wanderung/Unterkunft.js";
-import Appartement from "views/Unterkunft/Appartement/Unterkunft.js";
-import Kreuzfahrtschiff from "views/Unterkunft/Kreuzfahrtschiff/Unterkunft.js";
+import Stadttour from "views/Aktivitaeten/Stadttour/Stadttour.js";
+import Wanderung from "views/Aktivitaeten/Wanderung/Wanderung.js";
+import Appartement from "views/Unterkunft/Appartement/Appartement.js";
+import Kreuzfahrtschiff from "views/Unterkunft/Kreuzfahrtschiff/Kreuzfahrt.js";
 import Warenkorb from "views/Warenkorb/Warenkorb.js";
 
 var hist = createBrowserHistory();
@@ -42,10 +42,10 @@ ReactDOM.render(
         <Route path="/profile-page" component={ProfilePage} />
         <Route path="/login" component={LoginPage} />
         <Route path="/beispiele" component={Components} />
-        <Route path="/aktivitaeten" component={Aktivitaeten} />
+        <Route path="/aktivitaeten" exact component={Aktivitaeten} />
         <Route path="/aktivitaeten/stadttour" component={Stadttour} />
         <Route path="/aktivitaeten/wanderung" component={Wanderung} />
-        <Route path="/pauschalreisen" component={Pauschalreisen} />
+        <Route path="/pauschalreisen"  component={Pauschalreisen} />
         <Route path="/pauschalreisen/bus" component={Bus1} />
         <Route path="/pauschalreisen/strandurlaub" component={Strandurlaub} />
         <Route path="/pauschalreisen/Winterurlaub" component={Winterurlaub} />

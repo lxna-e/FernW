@@ -20,10 +20,10 @@ import Button from "components/CustomButtons/Button.js";
 import styles from "assets/jss/material-kit-react/views/hotelPage.js";
 
 // Sections for this page
-import hotel from "assets/img/Hotelbild.png";
-import montenegro from "assets/img/montenegro1.PNG"
-import deutschland1 from "assets/img/deutschland1.PNG"
-import Island1 from "assets/img/Island1.PNG"
+import ferienwohnung from "assets/img/Ferienwohnung.jpeg";
+import ferienwohnung1 from "assets/img/F1.jpg"
+import ferienwohnung2 from "assets/img/F2.jpg"
+import ferienwohnung3 from "assets/img/F3.jpg"
 import CustomHeader from "components/CustomHeader/CustomHeader.js";
 import { List, ListItem } from "@material-ui/core";
 import Card from "components/Card/Card.js";
@@ -39,31 +39,31 @@ const useStyles = makeStyles(styles);
 const alleHotels = [
   {
     id: 1,
-    img: montenegro,
+    img: ferienwohnung1,
     name: "Robinson Fleesensee",
     info: "Vollpension, Hotel",
     loc: "Göhring-Lebbin",
-    preis: 80
+    preis: 570
   },
   {
     id: 2,
-    img: deutschland1,
+    img: ferienwohnung2,
     name: "Falkensteiner Hotel, Montenegro",
     info: "Halbpension, Hotel",
     loc: "Becici",
-    preis: 127
+    preis: 284
   },
   {
     id: 3,
-    img: Island1,
+    img: ferienwohnung3,
     name: "Hotel Klettur",
     info: "Frühstück, Hotel",
     loc: "Reykjavik",
-    preis: 94
+    preis: 267
   },
 ];
 
-export default function Hotel(props) {
+export default function FerienW(props) {
   const classes = useStyles();
   const [hotelListe, setHotelListe] = useState([])
   const [startDate, setStartDate] = useState("");
@@ -78,14 +78,14 @@ export default function Hotel(props) {
   return (
     <div>
       <CustomHeader {...props} />
-      <img src={hotel} className="slick-image" width="100%" />
+      <img src={ferienwohnung} className="slick-image" width="100%" />
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.section}>
           <div className={classes.container}>
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={8}>
                 <h2 className={classes.title} color="gray">
-                  Hotels
+                  Ferienwohnungen
                 </h2>
                 <br />
                 <Card>
@@ -150,7 +150,7 @@ export default function Hotel(props) {
                     <Link to="/reisemittel/Flug">
                       <Button
                         simple
-                        color="primary"
+                        color="danger"
                         size="lg"
                         variant="contained"
                         endIcon={<NavigateNext />}>

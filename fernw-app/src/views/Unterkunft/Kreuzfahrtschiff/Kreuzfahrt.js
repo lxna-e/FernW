@@ -20,10 +20,10 @@ import Button from "components/CustomButtons/Button.js";
 import styles from "assets/jss/material-kit-react/views/hotelPage.js";
 
 // Sections for this page
-import hotel from "assets/img/Hotelbild.png";
-import montenegro from "assets/img/montenegro1.PNG"
-import deutschland1 from "assets/img/deutschland1.PNG"
-import Island1 from "assets/img/Island1.PNG"
+import kreuzfahrt from "assets/img/Kreuzfahrt.jpeg";
+import kreuzfahrt1 from "assets/img/K1.jpg"
+import kreuzfahrt2 from "assets/img/K2.jpg"
+import kreuzfahrt3 from "assets/img/K3.jpg"
 import CustomHeader from "components/CustomHeader/CustomHeader.js";
 import { List, ListItem } from "@material-ui/core";
 import Card from "components/Card/Card.js";
@@ -39,7 +39,7 @@ const useStyles = makeStyles(styles);
 const alleHotels = [
   {
     id: 1,
-    img: montenegro,
+    img: kreuzfahrt1,
     name: "Robinson Fleesensee",
     info: "Vollpension, Hotel",
     loc: "Göhring-Lebbin",
@@ -47,7 +47,7 @@ const alleHotels = [
   },
   {
     id: 2,
-    img: deutschland1,
+    img: kreuzfahrt2,
     name: "Falkensteiner Hotel, Montenegro",
     info: "Halbpension, Hotel",
     loc: "Becici",
@@ -55,7 +55,7 @@ const alleHotels = [
   },
   {
     id: 3,
-    img: Island1,
+    img: kreuzfahrt3,
     name: "Hotel Klettur",
     info: "Frühstück, Hotel",
     loc: "Reykjavik",
@@ -78,14 +78,14 @@ export default function Hotel(props) {
   return (
     <div>
       <CustomHeader {...props} />
-      <img src={hotel} className="slick-image" width="100%" />
+      <img src={kreuzfahrt} className="slick-image" width="100%" />
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.section}>
           <div className={classes.container}>
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={8}>
                 <h2 className={classes.title} color="gray">
-                  Hotels
+                  Kreuzfahrten
                 </h2>
                 <br />
                 <Card>
@@ -168,4 +168,14 @@ export default function Hotel(props) {
     </div>
   );
 }
+// import React from "react";
+// import CustomHeader from "components/CustomHeader/CustomHeader";
 
+// export default function Unterkunft() {
+//   return (
+//     <div>
+//       <CustomHeader />
+//       <div>Ich zeige die Unterkünfte an</div>
+//     </div>
+//   );
+// }

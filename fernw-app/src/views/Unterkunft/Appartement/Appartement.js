@@ -20,10 +20,10 @@ import Button from "components/CustomButtons/Button.js";
 import styles from "assets/jss/material-kit-react/views/hotelPage.js";
 
 // Sections for this page
-import hotel from "assets/img/Hotelbild.png";
-import montenegro from "assets/img/montenegro1.PNG"
-import deutschland1 from "assets/img/deutschland1.PNG"
-import Island1 from "assets/img/Island1.PNG"
+import appartement from "assets/img/Appartement.jpeg";
+import appartement1 from "assets/img/A1.jpg"
+import appartement2 from "assets/img/A2.jpg"
+import appartement3 from "assets/img/A3.jpg"
 import CustomHeader from "components/CustomHeader/CustomHeader.js";
 import { List, ListItem } from "@material-ui/core";
 import Card from "components/Card/Card.js";
@@ -39,31 +39,31 @@ const useStyles = makeStyles(styles);
 const alleHotels = [
   {
     id: 1,
-    img: montenegro,
+    img: appartement1,
     name: "Robinson Fleesensee",
     info: "Vollpension, Hotel",
     loc: "Göhring-Lebbin",
-    preis: 570
+    preis: 80
   },
   {
     id: 2,
-    img: deutschland1,
+    img: appartement2,
     name: "Falkensteiner Hotel, Montenegro",
     info: "Halbpension, Hotel",
     loc: "Becici",
-    preis: 284
+    preis: 127
   },
   {
     id: 3,
-    img: Island1,
+    img: appartement3,
     name: "Hotel Klettur",
     info: "Frühstück, Hotel",
     loc: "Reykjavik",
-    preis: 267
+    preis: 94
   },
 ];
 
-export default function FerienW(props) {
+export default function Hotel(props) {
   const classes = useStyles();
   const [hotelListe, setHotelListe] = useState([])
   const [startDate, setStartDate] = useState("");
@@ -78,14 +78,14 @@ export default function FerienW(props) {
   return (
     <div>
       <CustomHeader {...props} />
-      <img src={hotel} className="slick-image" width="100%" />
+      <img src={appartement} className="slick-image" width="100%" />
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.section}>
           <div className={classes.container}>
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={8}>
                 <h2 className={classes.title} color="gray">
-                  Ferienwohnungen
+                  Appartements
                 </h2>
                 <br />
                 <Card>
@@ -147,10 +147,10 @@ export default function FerienW(props) {
                     </List>
                   </CardBody>
                   <CardFooter className={classes.cardFooter} >
-                    <Link to="/reisemittel">
+                    <Link to="/reisemittel/Flug">
                       <Button
                         simple
-                        color="danger"
+                        color="primary"
                         size="lg"
                         variant="contained"
                         endIcon={<NavigateNext />}>
@@ -168,4 +168,3 @@ export default function FerienW(props) {
     </div>
   );
 }
-
