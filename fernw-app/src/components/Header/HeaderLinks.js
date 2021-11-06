@@ -31,20 +31,21 @@ import LandingPage from "views/Datenschutz/Datenschutz";
 const useStyles = makeStyles(styles);
 
 let login_name = "Login"
-//let login_hidden = true
+let login_hidden = true
 
 if (document.cookie) {
   login_name = document.cookie;
-  //if (login_name != "Login") {
-    //login_hidden = false;
-  //}
+  if (login_name != "Login") {
+    login_hidden = false;
+  }
 }
 
 export function loginName(props) {
+  console.log(props != null);
   if (props != null) {
     document.cookie = props;
     login_name = props;
-    //login_hidden = false;
+    login_hidden = false;
     window.location.replace("/");
   }
 }
@@ -135,15 +136,15 @@ export default function HeaderLinks(props) {
           {prodAnzahl !==0 && prodAnzahl}
         </Link>
       </ListItem>
-      <ListItem className={classes.listItem}>
+      {(login_hidden) ? (<ListItem className={classes.listItem}>
         <Link to="/login" className={classes.navLink}>
         <AccountCircle className={classes.icon} /> { login_name }
         </Link>
-      </ListItem>
-      {/*<ListItem className={classes.listItem}>
+      </ListItem>) : 
+      (<ListItem className={classes.listItem}>
         <CustomDropdown
           buttonText={login_name}
-          buttonIcon={classes.icons}
+          buttonIcon={AccountCircle}
           dropdownHeader="Profiloptionen:"
           buttonProps={{
             className: classes.navLink,
@@ -158,12 +159,13 @@ export default function HeaderLinks(props) {
               Benutzerdaten verwalten
             </Link>,
             { divider: true },
-            <Link to={"/login"} className={classes.dropdownLink}>
+            <Link to={"/login"} className={classes.dropdownLink} onClick={() => loginName("")}>
               ---
             </Link>
           ]}
         />
-        </ListItem> */}
+        </ListItem>)
+        }
     </List>
   );
 }
