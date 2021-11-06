@@ -20,7 +20,7 @@ import Button from "components/CustomButtons/Button.js";
 import styles from "assets/jss/material-kit-react/views/hotelPage.js";
 
 // Sections for this page
-import flugzeug from "assets/img/Flugzeug.png";
+import wanderungen from "assets/img/Wanderungen.jpeg";
 import wanderung from "assets/img/Wanderung.jpg"
 // import deutschland1 from "assets/img/deutschland1.PNG"
 // import Island1 from "assets/img/Island1.PNG"
@@ -77,7 +77,7 @@ export default function Flug(props) {
   return (
     <div>
       <CustomHeader {...props} />
-      <img src={flugzeug} className="slick-image" width="100%" />
+      <img src={wanderungen} className="slick-image" width="100%" />
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.section}>
           <div className={classes.container}>

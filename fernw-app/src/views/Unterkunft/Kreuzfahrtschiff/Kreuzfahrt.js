@@ -20,7 +20,7 @@ import Button from "components/CustomButtons/Button.js";
 import styles from "assets/jss/material-kit-react/views/hotelPage.js";
 
 // Sections for this page
-import hotel from "assets/img/Hotelbild.png";
+import kreuzfahrt from "assets/img/Kreuzfahrt.jpeg";
 import kreuzfahrt1 from "assets/img/K1.jpg"
 import kreuzfahrt2 from "assets/img/K2.jpg"
 import kreuzfahrt3 from "assets/img/K3.jpg"
@@ -78,7 +78,7 @@ export default function Hotel(props) {
   return (
     <div>
       <CustomHeader {...props} />
-      <img src={hotel} className="slick-image" width="100%" />
+      <img src={kreuzfahrt} className="slick-image" width="100%" />
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.section}>
           <div className={classes.container}>
@@ -147,7 +147,7 @@ export default function Hotel(props) {
                     </List>
                   </CardBody>
                   <CardFooter className={classes.cardFooter} >
-                    <Link to="/reisemittel">
+                    <Link to="/reisemittel/Flug">
                       <Button
                         simple
                         color="primary"
