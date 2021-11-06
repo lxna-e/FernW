@@ -20,7 +20,7 @@ import Button from "components/CustomButtons/Button.js";
 import styles from "assets/jss/material-kit-react/views/hotelPage.js";
 
 // Sections for this page
-import Stadt from "assets/img/Stadttour.jpg";
+import Stadt from "assets/img/Stadttour2.jpeg";
 import stadttour from "assets/img/Stadttour.jpg"
 // import deutschland1 from "assets/img/deutschland1.PNG"
 // import Island1 from "assets/img/Island1.PNG"
