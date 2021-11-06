@@ -30,17 +30,21 @@ import LandingPage from "views/Datenschutz/Datenschutz";
 
 const useStyles = makeStyles(styles);
 
-let login = "LOGIN"
+let login_name = "Login"
+//let login_hidden = true
 
 if (document.cookie) {
-  login = document.cookie;
+  login_name = document.cookie;
+  //if (login_name != "Login") {
+    //login_hidden = false;
+  //}
 }
-//let login = "LOGIN";
 
 export function loginName(props) {
   if (props != null) {
     document.cookie = props;
-    login = props;
+    login_name = props;
+    //login_hidden = false;
     window.location.replace("/");
   }
 }
@@ -133,9 +137,33 @@ export default function HeaderLinks(props) {
       </ListItem>
       <ListItem className={classes.listItem}>
         <Link to="/login" className={classes.navLink}>
-          <AccountCircle className={classes.icons} /> {login}
+        <AccountCircle className={classes.icon} /> { login_name }
         </Link>
       </ListItem>
+      {/*<ListItem className={classes.listItem}>
+        <CustomDropdown
+          buttonText={login_name}
+          buttonIcon={classes.icons}
+          dropdownHeader="Profiloptionen:"
+          buttonProps={{
+            className: classes.navLink,
+            color: "transparent",
+          }}
+          // noLiPadding
+          dropdownList={[
+            <Link to={"/login"} className={classes.dropdownLink}>
+              Profil
+            </Link>,
+            <Link to={"/login"} className={classes.dropdownLink}>
+              Benutzerdaten verwalten
+            </Link>,
+            { divider: true },
+            <Link to={"/login"} className={classes.dropdownLink}>
+              ---
+            </Link>
+          ]}
+        />
+        </ListItem> */}
     </List>
   );
 }
