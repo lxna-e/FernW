@@ -44,8 +44,9 @@ export default function Flugelement(props) {
                 <Button 
                     color="danger" 
                     onClick={() => dispatch(addProduct({
-                        ...flugData,
-                        startDatum: startDatum.clone(),
+                        img: flugData.img,
+                        titel: startFlughafen + " nach " + zielFlughafen,
+                        beschreibung: "Startzeit: " + startDatum.format(dateFormat),
                         preis: flugData.preis,
                         id: uuid(),
                     }))}>

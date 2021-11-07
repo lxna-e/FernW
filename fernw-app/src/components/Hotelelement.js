@@ -47,9 +47,9 @@ export default function Hotelelement(props) {
                 <Button 
                     color="danger" 
                     onClick={() => dispatch(addProduct({
-                        ...hotelData,
-                        startDatum: startDatum.clone(),
-                        endDatum: endDatum.clone(),
+                        titel: hotelData.name + ", " + hotelData.loc,
+                        beschreibung: anzahlNacht + (anzahlNacht == 1 ? " Nacht": " Nächte") + ", von " + startDatum.format(dateFormat) + " bis " + endDatum.format(dateFormat) + ", " + hotelData.info,
+                        img: hotelData.img,
                         preis: hotelData.preis * anzahlNacht,
                         id: uuid(),
                     }))}>

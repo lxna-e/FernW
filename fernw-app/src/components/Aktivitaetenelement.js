@@ -45,7 +45,9 @@ export default function AktivitaetElement(props) {
                 <Button 
                     color="danger" 
                     onClick={() => dispatch(addProduct({
-                        startDatum: startDatum.clone(),
+                        titel: aktivitaet + " " + location,
+                        beschreibung: "am " + startDatum.format(dateFormat + "[ um ]" + timeFormat + "[ Uhr]"),
+                        img: imgSrc,
                         preis: preis,
                         id: uuid(),
                     }))}>

@@ -46,7 +46,7 @@ export default function Warenkorb(props) {
           <div className={classes.container}>
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={8}>
-                <h2 className={classes.title} color="gray">
+                <h2 className={classes.title}>
                   Warenkorb
                 </h2>
                 <br />

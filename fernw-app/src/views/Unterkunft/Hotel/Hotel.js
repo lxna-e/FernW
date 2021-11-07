@@ -148,7 +148,7 @@ export default function Hotel(props) {
                     <Link to="/reisemittel/Flug">
                       <Button
                         simple
-                        color="primary"
+                        color="danger"
                         size="lg"
                         variant="contained"
                         endIcon={<NavigateNext />}>
