@@ -147,7 +147,7 @@ export default function Hotel(props) {
                     </List>
                   </CardBody>
                   <CardFooter className={classes.cardFooter} >
-                    <Link to="/reisemittel/Flug">
+                    <Link to="/reisemittel">
                       <Button
                         simple
                         color="primary"

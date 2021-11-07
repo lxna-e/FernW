@@ -13,6 +13,7 @@ import { removeProduct } from "features/cart/cartSlice";
 
 
 // core components
+import kasse from "assets/img/Kasse.png"
 import CustomHeader from "components/CustomHeader/CustomHeader.js";
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -39,7 +40,7 @@ export default function Warenkorb(props) {
   return (
     <div>
       <CustomHeader {...props} />
-      {/* <img src={hotel} className="slick-image" width="100%" /> */}
+      <img src={kasse} className="slick-image" width="100%" />
       
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.section}>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -10,6 +11,7 @@ import Fingerprint from "@material-ui/icons/Fingerprint";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import InfoArea from "components/InfoArea/InfoArea.js";
+import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
 
@@ -34,6 +36,12 @@ export default function ProductSection() {
           </h5>
         </GridItem>
       </GridContainer>
+      <br />
+      <Link to="/unterkunft">
+        <Button color="success" size="lg">
+          Jetzt meine Reise buchen!
+        </Button>
+      </Link>
       <div>
         <GridContainer>
           <GridItem xs={12} sm={12} md={4}>

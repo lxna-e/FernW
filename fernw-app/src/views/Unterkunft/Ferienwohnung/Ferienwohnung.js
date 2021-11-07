@@ -147,7 +147,7 @@ export default function FerienW(props) {
                     </List>
                   </CardBody>
                   <CardFooter className={classes.cardFooter} >
-                    <Link to="/reisemittel/Flug">
+                    <Link to="/reisemittel">
                       <Button
                         simple
                         color="danger"

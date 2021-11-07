@@ -16,7 +16,7 @@ const useStyles = makeStyles(styles);
 export default function ProductSection() {
     const classes = useStyles();
     return (
-        <div className={classes.section}>
+        <div >
             <GridContainer justify="center">
                 <GridItem xs={12} sm={12} md={8}>
                     <h2 className={classes.title}>
@@ -36,9 +36,6 @@ export default function ProductSection() {
                         <br/>
 
                         FernW GmbH & Co. KG<br/>
-                        Max Mustermann<br/>
-                        Musterweg 12<br/>
-                        12345 Musterort<br/>
 
                         Die verantwortliche Stelle entscheidet allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z.B. Namen, Kontaktdaten o. Ä.).
 

@@ -30,7 +30,8 @@ import LandingPage from "views/Datenschutz/Datenschutz";
 
 const useStyles = makeStyles(styles);
 
-let login_name = "Login"
+
+let login_name = "Login";
 let login_hidden = true
 
 if (document.cookie) {
@@ -67,9 +68,9 @@ export default function HeaderLinks(props) {
             className: classes.formControl,
           }}
           inputProps={{
-            placeholder: "Search",
+            placeholder: "Suche",
             inputProps: {
-              "aria-label": "Search",
+              "aria-label": "Suche",
               className: classes.searchInput,
             },
           }}

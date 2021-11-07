@@ -1,13 +1,3 @@
-// import React from "react";
-// import CustomHeader from "components/CustomHeader/CustomHeader";
-
-// export default function Impressum() {
-//   return (
-//     <div>
-//       <CustomHeader />
-//     </div>
-//   );
-// }
 import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
@@ -17,13 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 
 // core components
-// import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
-// import GridContainer from "components/Grid/GridContainer.js";
-// import GridItem from "components/Grid/GridItem.js";
-// import Button from "components/CustomButtons/Button.js";
-// import Parallax from "components/Parallax/Parallax.js";
-// import HeaderLinks from "components/Header/HeaderLinks.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPage.js";
 
@@ -33,7 +17,6 @@ import Carousel from "react-slick";
 import bus from "assets/img/Bus.jpg";
 import bahn from "assets/img/Bahn.jpg";
 import hotel from "assets/img/Hotel.jpg";
-// import logo from "assets/img/LOGO.png";
 import CustomHeader from "components/CustomHeader/CustomHeader.js";
 
 const useStyles = makeStyles(styles);
