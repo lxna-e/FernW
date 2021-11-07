@@ -72,8 +72,6 @@ export default function Hotel(props) {
   const yesterday = moment().subtract(1, "day");
   const validStart = (current) => { return current.isAfter(yesterday) }
   const validEnd = (current) => { return current.isAfter(yesterday) && (!startDate || current.isAfter(startDate)) }
-  // const { ...rest } = props;
-
 
   return (
     <div>

@@ -13,64 +13,53 @@ import { addProduct } from "features/cart/cartSlice";
 // core components
 import Button from "components/CustomButtons/Button.js"
 import GridContainer from "./Grid/GridContainer";
-// import GridItem from "./Grid/GridItem";
-import styles from "assets/jss/material-kit-react/views/hotelPage.js";
 import GridItem from "./Grid/GridItem";
-// import moment from "moment";
+import styles from "assets/jss/material-kit-react/views/hotelPage.js";
+import moment from "moment";
 
 const useStyles = makeStyles(styles);
 
-export default function Flugelement(props) {
+export default function AktivitaetElement(props) {
     const classes = useStyles();
     const dispatch = useDispatch();
-    const { flugData, startDatum } = props;
-    // const dateFormat = "DD.MM.YYYY HH:MM"
-    // const anzahlNacht = moment(endDatum).diff(startDatum, "days")
+    const { aktivitaet, imgSrc, location, preis, startDatum } = props;
+    const dateFormat = "DD.MM.YYYY"
+    const timeFormat = "HH:mm"
     return (
         <GridContainer alignItems={"center"}>
             <GridItem  xs={4} sm={4} md={4}>
                 <img
-                    src={flugData.img}
+                    src={imgSrc}
                     className={classes.imgRounded + " " + classes.imgFluid}
-
-                    // width="30%"
-
                 />
             </GridItem>
             <GridItem  xs={4} sm={4} md={4}>
                 <div>
-                    <h4>{flugData.name}</h4>
+                    <h4>{aktivitaet}</h4>
 
-                    <h5>{flugData.loc}</h5>
-                    <br />
-
-                 {/* {(startDatum && endDatum) ? anzahlNacht + ( anzahlNacht == 1 ? " Nacht" : " Nächte") + "," : ""} {startDatum ? moment(startDatum).format("[ab ]" + dateFormat + "[, ]") : ""}{hotelData.info} */}
+                    <h5>{location}</h5>
+                    am {moment(startDatum).format(dateFormat + "[ um ]" + timeFormat + "[ Uhr]")}
                 </div>
             </GridItem>
             <GridItem  xs={4} sm={4} md={4}>
                 <Button 
                     color="danger" 
                     onClick={() => dispatch(addProduct({
-                        ...flugData,
                         startDatum: startDatum.clone(),
-                        // endDatum: endDatum.clone(),
-                        preis: flugData.preis,
+                        preis: preis,
                         id: uuid(),
                     }))}>
-                    Gesamt ab {flugData.preis}€
+                    Gesamt ab {preis}€
                 </Button>
             </GridItem>
         </GridContainer>
     );
 }
 
-Flugelement.propTypes = {
-    flugData: PropTypes.object,
-    imgSrc: PropTypes.any,
-    flugName: PropTypes.string,
-    flugInformation: PropTypes.string,
+AktivitaetElement.propTypes = {
+    aktivitaet: PropTypes.string,
+    imgSrc: PropTypes.object,
     location: PropTypes.string,
     preis: PropTypes.number,
     startDatum: PropTypes.any,
-    // endDatum: PropTypes.any
 };

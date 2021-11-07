@@ -13,7 +13,6 @@ const landingPageStyle = (theme) => ({
     position: "relative",
     marginTop: "30px",
     minHeight: "32px",
-    color: "#FFFFFF",
     textDecoration: "none",
   },
   subtitle: {

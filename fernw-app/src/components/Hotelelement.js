@@ -13,7 +13,6 @@ import { addProduct } from "features/cart/cartSlice";
 // core components
 import Button from "components/CustomButtons/Button.js"
 import GridContainer from "./Grid/GridContainer";
-// import GridItem from "./Grid/GridItem";
 import styles from "assets/jss/material-kit-react/views/hotelPage.js";
 import GridItem from "./Grid/GridItem";
 import moment from "moment";
@@ -32,9 +31,6 @@ export default function Hotelelement(props) {
                 <img
                     src={hotelData.img}
                     className={classes.imgRounded + " " + classes.imgFluid}
-
-                    // width="30%"
-
                 />
             </GridItem>
             <GridItem  xs={4} sm={4} md={4}>

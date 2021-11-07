@@ -5,10 +5,6 @@ import IconButton from "@material-ui/core/IconButton";
 // react components for routing our app without refresh
 import { Link } from "react-router-dom";
 
-
-
-
-
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
@@ -25,7 +21,6 @@ import CustomInput from "components/CustomInput/CustomInput.js";
 import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js";
-import AccountCircle from "@material-ui/icons/AccountCircle";
 
 const useStyles = makeStyles(styles);
 
@@ -111,7 +106,7 @@ export default function LeftHeaderLinks(props) {
           ]}
         />
       </ListItem>
-      <ListItem className={classes.listItem}>
+      {/* <ListItem className={classes.listItem}>
         <CustomDropdown
           buttonText="Pauschalreisen"
           dropdownHeader="Pauschalreisen:"
@@ -137,7 +132,7 @@ export default function LeftHeaderLinks(props) {
             </Link>,
           ]}
         />
-      </ListItem>
+      </ListItem> */}
 
     </List>
   );

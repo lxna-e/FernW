@@ -22,8 +22,6 @@ import styles from "assets/jss/material-kit-react/views/hotelPage.js";
 // Sections for this page
 import bus from "assets/img/Busfahrt.jpeg";
 import busfahrt from "assets/img/busfahrt.jpg"
-// import deutschland1 from "assets/img/deutschland1.PNG"
-// import Island1 from "assets/img/Island1.PNG"
 import CustomHeader from "components/CustomHeader/CustomHeader.js";
 import { List, ListItem } from "@material-ui/core";
 import Card from "components/Card/Card.js";
@@ -40,39 +38,20 @@ const alleFlüge = [
   {
     id: 1,
     img: busfahrt,
-    name: "Frankfurt nach",
-    // info: "Vollpension, Hotel",
-    loc: "Montenegro",
     preis: 80
   },
-  // {
-  //   id: 2,
-  //   img: deutschland1,
-  //   name: "Falkensteiner Hotel, Montenegro",
-  //   info: "Halbpension, Hotel",
-  //   loc: "Becici",
-  //   preis: 127
-  // },
-  // {
-  //   id: 3,
-  //   img: Island1,
-  //   name: "Hotel Klettur",
-  //   info: "Frühstück, Hotel",
-  //   loc: "Reykjavik",
-  //   preis: 94
-  // },
 ];
 
 export default function Flug(props) {
   const classes = useStyles();
-  const [flugListe, setFlugListe] = useState([])
+  const [busListe, setBusListe] = useState([])
   const [startDate, setStartDate] = useState("");
+  const [startBahnhof, setStartBahnhof] = useState();
+  const [zielBahnhof, setZielBahnhof] = useState();
   const dateFormat = "DD.MM.YYYY"
+  const timeForamt = "H:mm";
   const yesterday = moment().subtract(1, "day");
   const validStart = (current) => { return current.isAfter(yesterday) }
-  // const validEnd = (current) => { return current.isAfter(yesterday) && (!startDate || current.isAfter(startDate)) }
-  // const { ...rest } = props;
-
 
   return (
     <div>
@@ -83,7 +62,7 @@ export default function Flug(props) {
           <div className={classes.container}>
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={8}>
-                <h2 className={classes.title} color="gray">
+                <h2 className={classes.title}>
                   Busfahrten
                 </h2>
                 <br />
@@ -97,45 +76,32 @@ export default function Flug(props) {
                         </InputLabel>
                         <Datetime className={classes.description}
                           closeOnSelect={true}
-                          timeFormat={true}
+                          timeFormat={timeForamt}
                           onChange={(selected) => { setStartDate(selected) }}
                           dateFormat={dateFormat}
                           isValidDate={validStart}
                           inputProps={{ placeholder: "Auswahl Startdatum" }}
                         />
-                       </GridItem>
-                      {/*<GridItem className={classes.listItem}>
-                        <InputLabel className={classes.label}>
-                          Enddatum
-                        </InputLabel>
-                        <Datetime className={classes.description}
-                          closeOnSelect={true}
-                          timeFormat={false}
-                          onChange={(selected) => { setEndDate(selected) }}
-                          dateFormat={dateFormat}
-                          isValidDate={validEnd}
-                          inputProps={{ placeholder: "Auswahl Enddatum" }}
-                        />
-                      </GridItem> */}
+                      </GridItem>
                       <GridItem className={classes.listItem}>
-                       <div> 
-                        <CustomInput
-                          white
-                          inputProps={{
-                            placeholder: "Filter nach Startbahnhof"
-                          }}
-                        />
-                        </div>
-                        <div>
-                         <CustomInput
-                          white
-                          inputProps={{
-                            placeholder: "Filter nach Zielbahnhof"
-                          }}
-                        />
-                        </div>
+                          <CustomInput
+                            white
+                            inputProps={{
+                              placeholder: "Filter nach Startbahnhof",
+                              onChange: (event) => setStartBahnhof(event.target.value),
+                            }}
+                          />
+                          </GridItem>
+                        <GridItem className={classes.listItem}>
+                          <CustomInput
+                            white
+                            inputProps={{
+                              placeholder: "Filter nach Zielbahnhof",
+                              onChange: (event) => setZielBahnhof(event.target.value)
+                            }}
+                          />
                         <Button justIcon round color="white" disabled={!(startDate)}
-                          onClick={() => { if (startDate) { setFlugListe(alleFlüge) } }}>
+                          onClick={() => { if (startDate) { setBusListe(alleFlüge) } }}>
                           <Search className={classes.searchIcon} />
                         </Button>
 
@@ -145,21 +111,23 @@ export default function Flug(props) {
                   <CardBody>
                     <h3>Unsere Bestseller</h3>
                     <List>
-                      {flugListe.map(flug => (
-                        <ListItem key={flug.id}>
+                      {busListe.map(bus => (
+                        <ListItem key={bus.id}>
                           <Flugelement
-                            flugData={flug}
+                            flugData={bus}
                             startDatum={startDate}
-                           />
+                            startFlughafen={startBahnhof}
+                            zielFlughafen={zielBahnhof}
+                          />
                         </ListItem>)
                       )}
                     </List>
                   </CardBody>
                   <CardFooter className={classes.cardFooter} >
-                    <Link to="/aktivitaeten/stadttour">
+                    <Link to="/aktivitaeten">
                       <Button
                         simple
-                        color="primary"
+                        color="danger"
                         size="lg"
                         variant="contained"
                         endIcon={<NavigateNext />}>

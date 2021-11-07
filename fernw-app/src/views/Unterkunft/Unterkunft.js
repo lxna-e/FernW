@@ -17,6 +17,9 @@ import GridItem from "components/Grid/GridItem";
 import Button from "components/CustomButtons/Button.js";
 
 import hotel from "assets/img/Hotelbild.png";
+import ferienwohnung from "assets/img/Ferienwohnung.jpeg";
+import appartement from "assets/img/Appartement.jpeg";
+import kreuzfahrt from "assets/img/Kreuzfahrt.jpeg";
 import montenegro from "assets/img/montenegro1.PNG"
 import deutschland1 from "assets/img/deutschland1.PNG"
 import Island1 from "assets/img/Island1.PNG"
@@ -92,7 +95,7 @@ export default function Unterkunft(props) {
               <GridItem xs={3} sm={3} md={3}>
                 <Link to={"/unterkunft/ferienwohnung"}>
                   <Button size="lg" color="info" className={classes.navLink}>
-                    <div><img src={hotel} className={classes.linkImage + " slick-image"} width="100%" /></div>
+                    <div><img src={ferienwohnung} className={classes.linkImage + " slick-image"} width="100%" /></div>
                     Ferienwohnungen
                   </Button>
                 </Link>
@@ -100,7 +103,7 @@ export default function Unterkunft(props) {
               <GridItem xs={3} sm={3} md={3}>
                 <Link to={"/unterkunft/appartement"}>
                   <Button size="lg" color="rose" className={classes.navLink}>
-                    <div><img src={hotel} className={classes.linkImage + " slick-image"} width="100%" /></div>
+                    <div><img src={appartement} className={classes.linkImage + " slick-image"} width="100%" /></div>
                     Appartements
                   </Button>
                 </Link>
@@ -108,7 +111,7 @@ export default function Unterkunft(props) {
               <GridItem xs={3} sm={3} md={3}>
                 <Link to={"/unterkunft/kreuzfahrtschiff"}>
                   <Button size="lg" color="success" className={classes.navLink}>
-                    <div><img src={hotel} className={classes.linkImage + " slick-image"} width="100%" /></div>
+                    <div><img src={kreuzfahrt} className={classes.linkImage + " slick-image"} width="100%" /></div>
                     Kreuzfahrtschiffe
                   </Button>
                 </Link>
@@ -118,7 +121,7 @@ export default function Unterkunft(props) {
           <div className={classes.container}>
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={8}>
-                <h2 className={classes.title} color="gray">
+                <h2 className={classes.title} color="black">
                   Unterkünfte
                 </h2>
                 <br />
