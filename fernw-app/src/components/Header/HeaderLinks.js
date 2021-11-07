@@ -41,13 +41,17 @@ if (document.cookie) {
 }
 
 export function loginName(props) {
-  console.log(props != null);
   if (props != null) {
     document.cookie = props;
     login_name = props;
     login_hidden = false;
     window.location.replace("/");
   }
+}
+
+function logout() {
+  document.cookie = document.cookie + "; expires=Thu, 01 Jan 1970 00:00:00 UTC;"
+  window.location.replace("/");
 }
 
 export default function HeaderLinks(props) {
@@ -74,62 +78,6 @@ export default function HeaderLinks(props) {
           <Search className={classes.searchIcon} />
         </Button>
       </ListItem >
-      {/* <ListItem className={classes.listItem}>
-        // <Tooltip title="Delete">
-        //   <IconButton aria-label="Delete">
-        //     <DeleteIcon />
-        //   </IconButton>
-        // </Tooltip>
-        <Tooltip
-          id="instagram-twitter"
-          title="Follow us on twitter"
-          placement={window.innerWidth > 959 ? "top" : "left"}
-          classes={{ tooltip: classes.tooltip }}
-        >
-          <Button
-            href="https://twitter.com"
-            target="_blank"
-            color="transparent"
-            className={classes.navLink}
-          >
-            <i className={classes.socialIcons + " fab fa-twitter"} />
-          </Button>
-        </Tooltip>
-      </ListItem> */}
-      {/* <ListItem className={classes.listItem}>
-        <Tooltip
-          id="instagram-facebook"
-          title="Follow us on facebook"
-          placement={window.innerWidth > 959 ? "top" : "left"}
-          classes={{ tooltip: classes.tooltip }}
-        >
-          <Button
-            color="transparent"
-            href="https://www.facebook.com"
-            target="_blank"
-            className={classes.navLink}
-          >
-            <i className={classes.socialIcons + " fab fa-facebook"} />
-          </Button>
-        </Tooltip>
-      </ListItem> */}
-      {/* <ListItem className={classes.listItem}>
-        <Tooltip
-          id="instagram-tooltip"
-          title="Follow us on instagram"
-          placement={window.innerWidth > 959 ? "top" : "left"}
-          classes={{ tooltip: classes.tooltip }}
-        >
-          <Button
-            color="transparent"
-            href="https://www.instagram.com"
-            target="_blank"
-            className={classes.navLink}
-          >
-            <i className={classes.socialIcons + " fab fa-instagram"} />
-          </Button>
-        </Tooltip>
-      </ListItem> */}
       <ListItem className={classes.listItem}>
         <Link to="/warenkorb" className={classes.navLink}>
           <i className={classes.socialIcons + " fa fa-shopping-cart"} aria-hidden="true"></i>
@@ -150,17 +98,18 @@ export default function HeaderLinks(props) {
             className: classes.navLink,
             color: "transparent",
           }}
+          onClick={(params) => {if (params.props.id === "logout") logout()}}
           // noLiPadding
           dropdownList={[
-            <Link to={"/login"} className={classes.dropdownLink}>
+            <Link id="profil" to={"/login"} className={classes.dropdownLink}>
               Profil
             </Link>,
-            <Link to={"/login"} className={classes.dropdownLink}>
+            <Link id="settings" to={"/login"} className={classes.dropdownLink}>
               Benutzerdaten verwalten
             </Link>,
             { divider: true },
-            <Link to={"/login"} className={classes.dropdownLink} onClick={() => loginName("")}>
-              ---
+            <Link id="logout" to={"/"} className={classes.dropdownLink}>
+              Logout
             </Link>
           ]}
         />
